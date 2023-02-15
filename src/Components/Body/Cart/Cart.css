@@ -1,0 +1,128 @@
+.shoppingCart {
+    padding-top: 80px;
+    margin-bottom: 50px;
+    height: 100vh;
+    position: relative;
+}
+
+.shoppingCart .address {
+    color: var(--main-color);
+    text-transform: capitalize;
+    padding: 10px 20px;
+    border: 1px solid var(--grey-color);
+    border-radius: 20px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* products */
+.shoppingCart .products {
+    margin-bottom: 200px !important;
+}
+
+.shoppingCart .products .box {
+    height: 30vh;
+    border: 1px solid rgb(197, 192, 192);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    text-align: center;
+    position: relative;
+}
+
+.shoppingCart .box:hover {
+    box-shadow: 5px 5px 5px 5px var(--grey-color);
+    background-color: var(--white-color);
+}
+
+.shoppingCart .products .box img {
+    width: 80%;
+    height: 100%;
+}
+
+
+.shoppingCart .products .box .quantityNum {
+    padding: 10px;
+    border: 1px solid var(--grey-color);
+    margin-right: 10px;
+    border-radius: 10px;
+    position: relative;
+    bottom: 2px;
+    width: 70px;
+}
+
+.shoppingCart .products .box button {
+    position: relative;
+    bottom: 5px !important;
+    margin-right: 10px;
+    font-size: 30;
+}
+
+.shoppingCart .products .box h3,
+.shoppingCart .products .box .quantity,
+.shoppingCart .products .box .delete {
+    position: relative;
+    top: calc(30vh/3);
+    text-transform: capitalize;
+}
+
+.shoppingCart .products .box .delete {
+    color: red;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0);
+    opacity: 0;
+    font-size: 0;
+    position: absolute;
+    bottom: 150px !important;
+}
+
+.shoppingCart .products .box:hover .delete {
+    transform: scale(1);
+    font-size: 28px;
+    opacity: 1;
+}
+
+/* total */
+.totalBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    border: 1px solid rgb(197, 192, 192);
+    border-radius: 5px;
+    background-color: var(--white-color);
+    position: fixed;
+    bottom: 15px;
+    width: 50%;
+    left: calc(50%/2) !important;
+    /* (100%-width)/2 */
+}
+
+.totalBox:hover {
+    background-color: var(--main-color);
+    color: var(--white-color);
+
+}
+
+.totalBox .proceed {
+    background-color: var(--main-color);
+    height: 60px;
+}
+
+.totalBox .proceed a {
+    width: 100%;
+    height: 100% !important;
+    display: inline-block;
+    position: relative;
+    top: calc(100%/4);
+}
+
+
+.totalBox h3 {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+    position: relative;
+    left: 80px;
+}

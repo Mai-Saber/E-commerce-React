@@ -1,0 +1,9 @@
+.hero__scroll .chevron {
+    margin-top: 20px;
+    display: block;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
+    color: #FF4081;
+    border: 1px solid #FF4081;
+    width: 20%;
+}

@@ -1,0 +1,71 @@
+.wishList {
+    padding-top: 80px;
+    margin-bottom: 50px;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wishList h1 {
+    text-align: center;
+    color: var(--main-color);
+    text-transform: capitalize;
+    animation: backInDown;
+    animation-duration: 3s;
+}
+
+.wishList .line {
+    width: 150px;
+    height: 3px;
+    margin: auto;
+    background-color: var(--white-color);
+}
+
+.wishList .products .product {
+    height: 30vh;
+    border: 1px solid rgb(197, 192, 192);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    text-align: center;
+    position: relative;
+}
+
+.wishList .products .product:hover {
+    box-shadow: 5px 5px 5px 5px var(--grey-color);
+    background-color: var(--white-color);
+}
+
+.wishList .products .product img {
+    width: 80%;
+    height: 100%;
+}
+
+.wishList .products .product .icons button {
+    position: relative;
+    bottom: 5px !important;
+    margin-right: 10px;
+    font-size: 30;
+}
+
+.wishList .products .product h3,
+.wishList .products .product .icons {
+    position: relative;
+    top: calc(30vh/3);
+    text-transform: capitalize;
+}
+
+.wishList .products .product .delete .close {
+    color: red;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0);
+    opacity: 0;
+    font-size: 0;
+    position: relative;
+    bottom: 2px;
+}
+
+.wishList .products .product:hover .close {
+    transform: scale(1);
+    font-size: 28px;
+    opacity: 1;
+}
