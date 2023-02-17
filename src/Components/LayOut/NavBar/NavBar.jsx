@@ -2,8 +2,9 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "./NavBar.css";
 import { useSelector, useDispatch } from "react-redux";
-import authReducer from "../../Redux/Auth";
-import { login, logout } from "../../Redux/Auth";
+import authReducer from "../../../Store/Auth";
+import { login, logout } from "../../../Store/Auth";
+import { Link } from "react-router-dom";
 
 function NavBar(props) {
   // redux usage
@@ -23,15 +24,15 @@ function NavBar(props) {
   // //////////////////////////////////////////////////////////////////////
   return (
     <>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid">
           {/* logo */}
-          <a class="navbar-brand logo" href="/">
+          <Link className="navbar-brand logo" to="/">
             <img src="../../../../Logo.jpeg" alt="logo" />
-          </a>
+          </Link>
           {/* toggle button */}
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo02"
@@ -39,45 +40,45 @@ function NavBar(props) {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           {/* //ul// */}
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
-                <a className="nav-link" href="/">
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li className="nav-item active">
+                <Link className="nav-link" to="/">
                   Home
-                </a>
+                </Link>
               </li>
-              <li class="nav-item">
-                <a className="nav-link" href="/about">
+              <li className="nav-item">
+                <Link className="nav-link" to="about">
                   About
-                </a>
+                </Link>
               </li>
-              <li class="nav-item">
-                <a className="nav-link" href="/contact">
+              <li className="nav-item">
+                <Link className="nav-link" to="/contact">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
             {/* //// */}
-            <ul class="navbar-nav my-2 my-lg-0 icons">
+            <ul className="navbar-nav my-2 my-lg-0 icons">
               <li className="nav-item" title="go to products you wish to buy">
-                <a className="nav-link" href="/wish-products">
+                <Link className="nav-link" to="/wish-products">
                   <i className="ri-heart-3-fill"></i>
-                </a>
+                </Link>
               </li>
               <li className="nav-item" title="go to cart">
-                <a className="nav-link" href="/cart">
+                <Link className="nav-link" to="/cart">
                   <i className="ri-shopping-cart-fill"></i>
-                </a>
+                </Link>
               </li>
               <li
                 className="nav-item"
                 title="login"
                 onClick={() => handleLogin(globalState.authReducer.isLogged)}
               >
-                <a className="nav-link" href="/login">
+                <Link className="nav-link" to="/login">
                   <i
                     className={
                       globalState.authReducer.isLogged
@@ -85,7 +86,7 @@ function NavBar(props) {
                         : "ri-login-box-line"
                     }
                   ></i>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -96,5 +97,3 @@ function NavBar(props) {
 }
 
 export default NavBar;
-
-     

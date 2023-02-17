@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./Product.css";
 import { Row, Col } from "react-bootstrap";
-import * as service from "../../../Services/Api";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../../Redux/Cart";
+import * as service from "../../Services/Api";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Store/Cart";
 
 function Product(props) {
   let [currentAction, setCurrentAction] = useState("description");
   const [product, setProduct] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  const Current_ID = Number(window.location.pathname.slice(9));
+  // const Current_ID = Number(window.location.pathname.slice(9));
   // redux
   // global state
-  const globalState = useSelector((state) => state);
+  // const globalState = useSelector((state) => state);
   // const post = useSelector((state) =>
   //   state.posts.find((post) => post.id === postId)
   // );
@@ -23,16 +23,13 @@ function Product(props) {
   useEffect(() => {
     // product
     async function GetProduct() {
-      const Current_product = await service.AxiosFunction(
-        "get",
-        `products/${Current_ID}`
-      );
+      const Current_product = await service.AxiosFunction("get", `products/2`);
       setProduct(Current_product);
       const Current_Category = Current_product.category;
       //////////// get related products///////////
       const All_Products = await service.AxiosFunction("get", "products");
       const sameCategory = All_Products.filter(
-        (ele) => ele.category === Current_Category && ele.id !== Current_ID
+        (ele) => ele.category === Current_Category && ele.id !== 2
       );
       setRelatedProducts(sameCategory.slice(0, 3));
     }

@@ -3,19 +3,18 @@ import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
-import { increase, decrease } from "../../../Redux/Counter";
-import { deleteFromCart } from "../../../Redux/Cart";
-import { store } from '../../../Redux/Store';
+import { increase, decrease } from "../../Store/Counter";
+import { deleteFromCart } from "../../Store/Cart";
+import { store } from "../../Store/Store";
 
 function Cart(prop) {
   // redux usage
-  console.log("state",store.getState().cartReducer)
+  console.log("state", store.getState().cartReducer);
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const products = globalState.cartReducer.cart;
   // console.log("state", globalState.cartReducer);
-
 
   return (
     <>

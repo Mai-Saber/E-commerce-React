@@ -8,12 +8,12 @@ import { Typewriter } from "react-simple-typewriter";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import * as service from "../../../Services/Api";
+import * as service from "../../Services/Api";
 
 import "animate.css";
 import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, deleteFromCart } from "../../../Redux/Cart";
+import { addToCart, deleteFromCart } from "../../Store/Cart";
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -26,8 +26,6 @@ function Home(props) {
   // global state
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  console.log("state", globalState.cartReducer);
 
   useEffect(() => {
     // loading
