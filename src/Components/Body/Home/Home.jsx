@@ -12,6 +12,8 @@ import * as service from "../../../Services/Api";
 
 import "animate.css";
 import "./Home.css";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, deleteFromCart } from "../../../Redux/Cart";
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -20,11 +22,19 @@ function Home(props) {
   let [categories, setCategories] = useState([]);
   const [categoryName, setCategoryName] = useState("All Products");
 
+  // redux
+  // global state
+  const globalState = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  console.log("state", globalState.cartReducer);
+
   useEffect(() => {
     // loading
     setTimeout(function () {
       setLoading(false);
-    }, 1000);
+    }, 1500);
+
     // products
     async function GetProducts() {
       const response = await service.AxiosFunction("get", "products");
@@ -41,7 +51,8 @@ function Home(props) {
       setCategories(response);
     }
     GetCategories();
-  }, []);
+  }, [dispatch]);
+
   // ////////////////////////
   const handleFilterCategories = (categoryName) => {
     setCategoryName(categoryName);
@@ -226,7 +237,7 @@ function Home(props) {
                   {!loading && (
                     <Row>
                       {categoryProducts?.map((product) => (
-                        <Col xs={4} key={product.id}>
+                        <Col xs={6} lg={4} key={product.id}>
                           <div
                             className="card"
                             data-aos="flip-up"
@@ -256,6 +267,7 @@ function Home(props) {
                                     color="primary"
                                     aria-label="add to shopping cart"
                                     title="add to shopping cart"
+                                    onClick={() => dispatch(addToCart(product))}
                                   >
                                     <AddShoppingCartIcon />
                                   </IconButton>

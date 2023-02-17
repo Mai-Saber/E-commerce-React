@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Product.css";
 import { Row, Col } from "react-bootstrap";
 import * as service from "../../../Services/Api";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../../Redux/Cart";
 
 function Product(props) {
   let [currentAction, setCurrentAction] = useState("description");
@@ -9,6 +11,14 @@ function Product(props) {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   const Current_ID = Number(window.location.pathname.slice(9));
+  // redux
+  // global state
+  const globalState = useSelector((state) => state);
+  // const post = useSelector((state) =>
+  //   state.posts.find((post) => post.id === postId)
+  // );
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // product
@@ -88,7 +98,13 @@ function Product(props) {
                   <span className="grey"></span>
                 </div>
 
-                <button className="btn"> ADD TO THE CART</button>
+                <button
+                  className="btn"
+                  onClick={() => dispatch(addToCart(product))}
+                >
+                  {" "}
+                  ADD TO THE CART
+                </button>
               </div>
             </Col>
           </Row>

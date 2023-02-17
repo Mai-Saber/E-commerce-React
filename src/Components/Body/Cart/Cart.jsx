@@ -2,23 +2,21 @@ import { Row, Col } from "react-bootstrap";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Cart.css";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increase, decrease } from "../../../Redux/Counter";
+import { deleteFromCart } from "../../../Redux/Cart";
+import { store } from '../../../Redux/Store';
 
 function Cart(prop) {
-  const products = [
-    {
-      img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-      id: 1,
-      name: "mai",
-      price: "2345 $",
-      rating: "3",
-      category: "clothes",
-      
-    },
-  ];
+  // redux usage
+  console.log("state",store.getState().cartReducer)
+  const globalState = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const products = globalState.cartReducer.cart;
+  // console.log("state", globalState.cartReducer);
 
 
-  const [total, setTotal] = useState(2);
   return (
     <>
       {!products.length && (
@@ -40,33 +38,44 @@ function Cart(prop) {
               <h1 className="address">Shopping Cart</h1>
               {/* products */}
               <ul className="products">
-                {products.map((ele) => (
-                  <li key={ele.id}>
+                {products.map((product) => (
+                  <li key={product.id}>
                     <Row className="box">
                       <Col xs={2}>
-                        <img src={ele.img} alt="product img" />
+                        <img src={product.img} alt="product img" />
                       </Col>
                       <Col xs={2}>
-                        <h3> {ele.name}</h3>
+                        <h3> {product.name}</h3>
                       </Col>
                       <Col xs={2}>
-                        <h3>{ele.price}</h3>
+                        <h3>{product.price}</h3>
                       </Col>
                       <Col xs={4}>
                         <div className="quantity">
-                          <button className="btn btn-primary">+</button>
+                          <button
+                            className="btn btn-primary"
+                            onClick={() => dispatch(increase(50))}
+                          >
+                            +
+                          </button>
                           <input
                             type="number"
                             className="quantityNum"
-                            value="1"
+                            value={globalState.counterReducer.value}
                           />
-                          <button className="btn btn-secondary">-</button>
+                          <button
+                            className="btn btn-secondary"
+                            onClick={() => dispatch(decrease(2))}
+                          >
+                            -
+                          </button>
                         </div>
                       </Col>
                       <Col xs={1}>
                         <button
                           className="btn delete"
                           title="Delete this product from my wish list"
+                          onClick={() => dispatch(deleteFromCart(product))}
                         >
                           <span
                           // className="close"
@@ -87,7 +96,7 @@ function Cart(prop) {
             <button className="btn proceed">
               <a href="/check_out">Proceed To Checkout</a>
             </button>
-            <h3>Total = {total} $ </h3>
+            <h3>Total = {globalState.cartReducer.total} $ </h3>
           </div>
         </>
       )}
