@@ -10,7 +10,7 @@ function Product(props) {
   const [product, setProduct] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  // const Current_ID = Number(window.location.pathname.slice(9));
+  const Current_ID = Number(window.location.pathname.slice(9));
   // redux
   // global state
   // const globalState = useSelector((state) => state);
@@ -23,13 +23,16 @@ function Product(props) {
   useEffect(() => {
     // product
     async function GetProduct() {
-      const Current_product = await service.AxiosFunction("get", `products/2`);
+      const Current_product = await service.AxiosFunction(
+        "get",
+        `products/${Current_ID}`
+      );
       setProduct(Current_product);
       const Current_Category = Current_product.category;
       //////////// get related products///////////
       const All_Products = await service.AxiosFunction("get", "products");
       const sameCategory = All_Products.filter(
-        (ele) => ele.category === Current_Category && ele.id !== 2
+        (ele) => ele.category === Current_Category && ele.id !== Current_ID
       );
       setRelatedProducts(sameCategory.slice(0, 3));
     }

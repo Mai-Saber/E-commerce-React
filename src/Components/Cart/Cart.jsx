@@ -1,24 +1,27 @@
+import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
-import IconButton from "@mui/material/IconButton";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
-import { increase, decrease } from "../../Store/Counter";
-import { deleteFromCart } from "../../Store/Cart";
-import { store } from "../../Store/Store";
+import { deleteFromCart, setCart } from "../../Store/Cart";
 
 function Cart(prop) {
   // redux usage
-  console.log("state", store.getState().cartReducer);
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  const products = globalState.cartReducer.cart;
-  // console.log("state", globalState.cartReducer);
+  const cart = globalState.cartReducer.cart;
+  // ///////////////////////////////////////////
+  let newCart = cart;
+  const handleChange = (e, id) => {
+    // console.log(document.getElementById(id).value);
+    let product = cart.filter((item) => item.id === id);
+    product.quantity = e.target.value;
+    newCart = { ...cart, product };
+    console.log("c", newCart);
+  };
 
   return (
     <>
-      {!products.length && (
+      {!cart.length && (
         <div className="empty">
           <img
             className="noProducts"
@@ -30,14 +33,14 @@ function Cart(prop) {
           </button>
         </div>
       )}
-      {products.length !== 0 && (
+      {cart.length !== 0 && (
         <>
           <div className="shoppingCart">
             <div className=" container">
               <h1 className="address">Shopping Cart</h1>
               {/* products */}
               <ul className="products">
-                {products.map((product) => (
+                {cart.map((product) => (
                   <li key={product.id}>
                     <Row className="box">
                       <Col xs={2}>
@@ -47,27 +50,18 @@ function Cart(prop) {
                         <h3> {product.name}</h3>
                       </Col>
                       <Col xs={2}>
-                        <h3>{product.price}</h3>
+                        <h3>{Number.parseInt(product.price)}</h3>
                       </Col>
                       <Col xs={4}>
                         <div className="quantity">
-                          <button
-                            className="btn btn-primary"
-                            onClick={() => dispatch(increase(50))}
-                          >
-                            +
-                          </button>
                           <input
                             type="number"
+                            id={product.id}
                             className="quantityNum"
-                            value={globalState.counterReducer.value}
+                            value={product.quantity}
+                            onChange={(e) => handleChange(e, product.id)}
+                            name="value"
                           />
-                          <button
-                            className="btn btn-secondary"
-                            onClick={() => dispatch(decrease(2))}
-                          >
-                            -
-                          </button>
                         </div>
                       </Col>
                       <Col xs={1}>
@@ -76,10 +70,7 @@ function Cart(prop) {
                           title="Delete this product from my wish list"
                           onClick={() => dispatch(deleteFromCart(product))}
                         >
-                          <span
-                          // className="close"
-                          //   onClick={() => handleClose(item.id)}
-                          >
+                          <span>
                             <i className="ri-close-circle-fill"></i>
                           </span>
                         </button>

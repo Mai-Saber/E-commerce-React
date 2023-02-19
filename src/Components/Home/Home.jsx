@@ -3,17 +3,14 @@ import { Row, Col } from "react-bootstrap";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { RotatingLines } from "react-loader-spinner";
-import LazyLoad from "react-lazy-load";
 import { Typewriter } from "react-simple-typewriter";
-import Checkbox from "@mui/material/Checkbox";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
 import * as service from "../../Services/Api";
 
 import "animate.css";
 import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, deleteFromCart } from "../../Store/Cart";
+import { addToCart } from "../../Store/Cart";
+import { addToLovelyList, removeFromLovelyList } from "../../Store/WishList";
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -49,7 +46,7 @@ function Home(props) {
       setCategories(response);
     }
     GetCategories();
-  }, [dispatch]);
+  }, []);
 
   // ////////////////////////
   const handleFilterCategories = (categoryName) => {
@@ -61,6 +58,17 @@ function Home(props) {
         (ele) => ele.category === categoryName
       );
       setCategoryProducts(response);
+    }
+  };
+  // //////////////////
+  // handle wish list
+  const wishList = globalState.wishListReducer.wishList;
+
+  const handleWishList = (product) => {
+    if (wishList.includes(product)) {
+      dispatch(removeFromLovelyList(product));
+    } else {
+      dispatch(addToLovelyList(product));
     }
   };
 
@@ -244,7 +252,7 @@ function Home(props) {
                           >
                             <img src={product.image} alt="product img" />
                             <div className="price">
-                              <p>{product.price} $</p>
+                              <p>{Number.parseInt(product.price)} $</p>
                             </div>
                             <div className="buttons">
                               <div className="section">{product.category}</div>
@@ -252,13 +260,15 @@ function Home(props) {
                                 <button
                                   className="btn heart"
                                   title="add to lovely products"
+                                  onClick={() => handleWishList(product)}
                                 >
-                                  <i className="ri-heart-line"></i>
-                                  {/* <Checkbox
-                                    {...label}
-                                    icon={<FavoriteBorder />}
-                                    checkedIcon={<Favorite />}
-                                  /> */}
+                                  <i
+                                    className={
+                                      wishList.includes(product)
+                                        ? "ri-heart-fill"
+                                        : "ri-heart-line"
+                                    }
+                                  ></i>
                                 </button>
                                 <span className="btn cart" title="add to cart">
                                   <IconButton

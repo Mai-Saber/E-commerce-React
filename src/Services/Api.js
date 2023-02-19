@@ -9,3 +9,12 @@ export const AxiosFunction = async (method,url) => {
   });
   return response.data;
 };
+export const edit = async (method, url, data) => {
+  const ApiUrl = baseUrl + url;
+  const response = await axios({
+    method: method,
+    url: ApiUrl,
+    data: data,
+  });
+  return response.data;
+};

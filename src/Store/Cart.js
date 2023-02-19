@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const cartReducer = createSlice({
   name: "cartReducer",
   initialState: {
@@ -9,9 +10,14 @@ const cartReducer = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
+      // push it
       state.cart.push(action.payload);
+
+      // handle price
+      state.prices.push(
+        Number.parseInt(action.payload.price * action.payload.quantity)
+      );
       // handle total
-      state.prices.push(action.payload.price);
       const initialValue = 0;
       state.total = state.prices.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
@@ -20,9 +26,27 @@ const cartReducer = createSlice({
     },
 
     deleteFromCart: (state, action) => {
-      state.cart.filter((item) => item.id !== action.payload.id);
+      // get obj include action payload & quantity from cart
+      const product = state.cart.filter(
+        (item) => item.id === action.payload.id
+      );
+
+      state.cart = state.cart.filter((item) => item.id !== product.id);
+      // handle price
+      state.prices = state.prices.filter(
+        (item) =>
+          item.price !== Number.parseInt(product.price * product.quantity)
+      );
+      // handle total
+      state.total -= Number.parseInt(product.price);
+    },
+
+    setCart: (state, action) => {
+      console.log(action.payload);
+      // state.cart = action.payload;
     },
   },
 });
+
 export default cartReducer;
-export const { addToCart, deleteFromCart } = cartReducer.actions;
+export const { addToCart, deleteFromCart, setCart } = cartReducer.actions;
