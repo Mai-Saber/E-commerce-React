@@ -4,20 +4,15 @@ import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCart, setCart } from "../../Store/Cart";
 
+
 function Cart(prop) {
   // redux usage
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
   const cart = globalState.cartReducer.cart;
   // ///////////////////////////////////////////
-  let newCart = cart;
-  const handleChange = (e, id) => {
-    // console.log(document.getElementById(id).value);
-    let product = cart.filter((item) => item.id === id);
-    product.quantity = e.target.value;
-    newCart = { ...cart, product };
-    console.log("c", newCart);
-  };
+  
+  // ////////////////////////////////////////////////
 
   return (
     <>
@@ -59,7 +54,7 @@ function Cart(prop) {
                             id={product.id}
                             className="quantityNum"
                             value={product.quantity}
-                            onChange={(e) => handleChange(e, product.id)}
+                            onChange={(e) => handleChange(e, product)}
                             name="value"
                           />
                         </div>
