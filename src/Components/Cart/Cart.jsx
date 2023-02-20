@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFromCart, setCart } from "../../Store/Cart";
+import { deleteFromCart} from "../../Store/Cart";
 
 
 function Cart(prop) {
@@ -54,7 +54,7 @@ function Cart(prop) {
                             id={product.id}
                             className="quantityNum"
                             value={product.quantity}
-                            onChange={(e) => handleChange(e, product)}
+                            // onChange={(e) => handleChange(e, product)}
                             name="value"
                           />
                         </div>

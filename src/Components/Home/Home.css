@@ -1,6 +1,6 @@
 .home .carousel {
     height: 80vh !important;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     position: relative;
 }
 
@@ -27,7 +27,7 @@
 /* shopContainer */
 /* filtration */
 .home .shopContainer {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .home .shopContainer .filtration {
@@ -37,10 +37,9 @@
     margin-top: 50px;
     margin-left: 50px;
     text-align: center;
-    width: 70%;
+    width: 80%;
     border-radius: 20px;
     padding: 20px;
-
 }
 
 .home .shopContainer .filtration h4 {
@@ -57,6 +56,7 @@
 
 .home .shopContainer .filtration ul li button {
     width: 100%;
+    text-transform: capitalize;
 }
 
 /* //////////////// */
@@ -65,26 +65,35 @@
     color: var(--main-color);
     position: relative;
     left: 50px;
-    margin: 30px;
+    margin: 15px;
+        text-transform: capitalize;
 }
 
 .home .shopProducts .card {
     padding: 5px;
     position: relative;
     height: 80%;
+width: 100%;
 }
 
 .home .shopProducts .card:hover {
     box-shadow: 3px 5px 5px 5px rgba(128, 128, 128, 0.756);
 }
 
-.home .shopContainer .boxes .card img {
+.home .shopContainer .boxes .card .imgDiv {
+    margin-bottom: 20px;
     height: 60%;
+    width: 100%;
+        padding: 10px;
 }
-
+.home .shopContainer .boxes .card .imgDiv img {
+    height: 100% !important;
+    width: 100% !important;
+}
 .home .shopContainer .boxes .card .price {
+    width: fit-content;
     border-radius: 50%;
-    width: 50px;
+    padding: 0 5px;
     height: 50px;
     position: absolute;
     text-align: center;
@@ -108,21 +117,29 @@
 .home .shopProducts .boxes .card .buttons {
     display: flex;
     position: relative;
-    bottom: 5px;
+    bottom: 30px;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        height: 40px;
 }
 
 .home .shopProducts .boxes .card .buttons .section {
+    width: 90% !important;
+        overflow: hidden;
     background-color: grey;
-    width: 35%;
-    height: fit-content;
-    padding: 5px;
+    color: var(--white-color);
+        height: 30px;
+        padding: 5px 2px;
     border-top-left-radius: 10px;
     border-top-right-radius: 140px;
-    color: var(--white-color);
     text-transform: uppercase;
-    margin-right: 50px;
 }
 
+.home .shopProducts .boxes .card .buttons .left_buttons {
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+}
 .home .shopProducts .boxes .card .buttons .left_buttons button {
     position: relative;
     bottom: 5px;
@@ -132,19 +149,27 @@
 .home .shopProducts .boxes .card .buttons .left_buttons .heart{
     color: var(--main-color) !important;
     position: relative;
-    bottom: 7px;
+    bottom: 5px;
     padding: 1;
+    left: 10px;
 }
 
 .home .shopProducts .boxes .card .cardContent {
     line-height: 1;
     position: relative;
-    bottom: 20px;
+    bottom: 50px;
+        height: 90px;
+        margin-bottom: 10px;
+    
+        overflow: hidden;
 }
 
 .home .shopProducts .boxes .card .details {
-    position: relative;
-    bottom: 20px;
+    position: absolute;
+        bottom: 3px;
+        width: 95%;
+        margin: auto;
+        display: block;
 }
 
 .home .shopProducts .boxes .card .details a {
@@ -153,17 +178,27 @@
 }
 
 /* loading */
-.home .loading {
+.loading {
     text-align: center;
-    margin-top: 20px !important;
+    margin-top: 200px !important;
 }
-/* lazy load */
-.LazyLoad {
-    opacity: 0;
-    transition: all 1s ease-in-out;
-}
+/* /////////// */
 
-.is-visible {
-    opacity: 1;
-}
+@media (min-width:100px) and (max-width:575px) {
+    .shopProducts .card {
+        height: fit-content !important;
+        width: 80% !important;
+        margin: 10px 10%;
 
+    }
+
+    .shopContainer .imgDiv {
+        height: 300px !important;
+        width:300px !important;
+        margin: auto;
+    }
+
+    .home .shopProducts .boxes .card .buttons .section {
+        width: 50% !important;
+    }
+}

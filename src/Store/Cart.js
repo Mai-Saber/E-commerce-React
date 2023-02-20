@@ -40,11 +40,7 @@ const cartReducer = createSlice({
       // handle total
       state.total -= Number.parseInt(product.price);
     },
-
-    setCart: (state, action) => {
-      console.log(action.payload);
-      // state.cart = action.payload;
-    },
+    
   },
 });
 
