@@ -38,16 +38,20 @@ function Cart(prop) {
                 {cart.map((product) => (
                   <li key={product.id}>
                     <Row className="box">
-                      <Col xs={2}>
-                        <img src={product.img} alt="product img" />
+                      <Col xs={6} md={2}>
+                        <div className="imgDiv">
+                          <img src={product.image} alt="product img" />
+                        </div>
                       </Col>
-                      <Col xs={2}>
-                        <h3> {product.name}</h3>
+                      <Col xs={6} md={3}>
+                        <h3 className="title"> {product.title}</h3>
                       </Col>
-                      <Col xs={2}>
-                        <h3>{Number.parseInt(product.price)}</h3>
+                      <Col xs={5} md={2}>
+                        <h3 className="price">
+                          {Number.parseInt(product.price)} $
+                        </h3>
                       </Col>
-                      <Col xs={4}>
+                      <Col xs={5} md={4}>
                         <div className="quantity">
                           <input
                             type="number"
@@ -59,16 +63,18 @@ function Cart(prop) {
                           />
                         </div>
                       </Col>
-                      <Col xs={1}>
-                        <button
-                          className="btn delete"
-                          title="Delete this product from my wish list"
-                          onClick={() => dispatch(deleteFromCart(product))}
-                        >
-                          <span>
-                            <i className="ri-close-circle-fill"></i>
-                          </span>
-                        </button>
+                      <Col xs={2} md={1}>
+                        <div className="icons">
+                          <button
+                            className="btn delete"
+                            title="Delete this product from my wish list"
+                            onClick={() => dispatch(deleteFromCart(product))}
+                          >
+                            <span>
+                              <i className="ri-close-circle-fill"></i>
+                            </span>
+                          </button>
+                        </div>
                       </Col>
                     </Row>
                   </li>

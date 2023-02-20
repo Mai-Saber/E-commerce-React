@@ -36,3 +36,14 @@
     color: var(--white-color);
     margin-left: 20px;
 }
+
+/* responsive */
+@media (min-width:100px) and (max-width:700px) {
+    .about .content p:before {
+        background-color: var(--white-color);
+    }
+    .about .content {
+        text-align: center;
+    }
+
+}

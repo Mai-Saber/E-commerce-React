@@ -69,13 +69,13 @@ function Contact(props) {
 
           <div className="content container">
             <Row>
-              <Col xs={6}>
+              <Col xs={1} md={6}>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5_BrN-sw963xZ-V_3UbJaC0hHIVYc1_qpw&usqp=CAU"
                   alt=""
                 />
               </Col>
-              <Col xs={6}>
+              <Col xs={12} md={6}>
                 <h1>CONTACT US</h1>
                 <form onSubmit={handleSubmit}>
                   <TextField

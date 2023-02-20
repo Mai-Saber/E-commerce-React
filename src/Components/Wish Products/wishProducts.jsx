@@ -39,16 +39,16 @@ function WishProducts(prop) {
               {wishListProducts.map((ele) => (
                 <li key={ele.id}>
                   <Row className="product">
-                    <Col xs={2}>
+                    <Col xs={6} md={2}>
                       <img src={ele.image} alt="product img" />
                     </Col>
-                    <Col xs={3}>
-                      <h3> {ele.title}</h3>
+                    <Col xs={6} md={3}>
+                      <h3 className="title"> {ele.title}</h3>
                     </Col>
-                    <Col xs={3}>
-                      <h3>{ele.price}</h3>
+                    <Col xs={6} md={3}>
+                      <h3 className="price">{ele.price}</h3>
                     </Col>
-                    <Col xs={4}>
+                    <Col xs={6} md={4}>
                       <div className="icons">
                         <IconButton
                           className="cart"

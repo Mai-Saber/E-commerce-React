@@ -131,3 +131,10 @@ button:focus a{
     margin: auto;
     margin-top: 20px;
 }
+/* responsive */
+@media (min-width:100px) and (max-width:1000px) {
+    .empty img {
+        width: 90% !important;
+
+    }
+}

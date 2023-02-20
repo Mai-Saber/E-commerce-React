@@ -1,7 +1,5 @@
 .wishList {
     padding-top: 80px;
-    margin-bottom: 50px;
-    height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -14,22 +12,28 @@
 }
 
 .wishList .line {
-    width: 150px;
+    width: 200px;
     height: 3px;
     margin: auto;
-    background-color: var(--white-color);
+    background-color: var(--grey-color);
 }
 
+.wishList .products {
+    margin-bottom: 30px !important;
+}
 .wishList .products .product {
-    height: 30vh;
+    height: 30vh !important;
     border: 1px solid rgb(197, 192, 192);
     padding: 10px;
     border-radius: 5px;
-    background-color: var(--white-color);
     text-align: center;
     position: relative;
+    margin-top: 20px;
 }
+.wishList ul li:last-of-type {
+    margin-bottom: 120px !important;
 
+}
 .wishList .products .product:hover {
     box-shadow: 5px 5px 5px 5px var(--grey-color);
     background-color: var(--white-color);
@@ -37,9 +41,14 @@
 
 .wishList .products .product img {
     width: 80%;
-    height: 100%;
+    height: 80%;
 }
-
+.wishList .products .product .title {
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    top: 40px;
+}
 .wishList .products .product .icons button {
     position: relative;
     bottom: 5px !important;
@@ -68,4 +77,31 @@
     transform: scale(1);
     font-size: 28px;
     opacity: 1;
+}
+/* responsive */
+@media (min-width:100px) and (max-width:1000px) {
+    .wishList {
+        margin-bottom: 100px;
+    }
+
+    .wishList .products .product {
+        height: fit-content !important;
+    }
+
+    .wishList .products .product img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .wishList .products .product .title {
+        height: 50px;
+        overflow: hidden;
+    }
+
+    .wishList .products .product .price,
+    .wishList .products .product .icons {
+        position: relative;
+        top: 20px;
+    }
+
 }

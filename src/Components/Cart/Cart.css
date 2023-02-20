@@ -16,44 +16,49 @@
     margin-bottom: 20px;
     font-style: italic;
 }
-
 /* products */
 .shoppingCart .products {
-    margin-bottom: 200px !important;
+    margin-bottom: 30px !important;
 }
 
 .shoppingCart .products .box {
-    height: 30vh;
+    height: 30vh !important;
     border: 1px solid rgb(197, 192, 192);
     padding: 10px;
     border-radius: 5px;
-    background-color: var(--white-color);
     text-align: center;
     position: relative;
+    margin-top: 20px;
+}
+.shoppingCart ul li:last-of-type {
+    margin-bottom: 120px !important;
+
 }
 
-.shoppingCart .box:hover {
+.shoppingCart .products .box:hover {
     box-shadow: 5px 5px 5px 5px var(--grey-color);
     background-color: var(--white-color);
 }
 
 .shoppingCart .products .box img {
     width: 80%;
-    height: 100%;
+    height: 60%;
+        position: relative;
+        top: 20px;
 }
 
-
-.shoppingCart .products .box .quantityNum {
-    padding: 10px;
-    border: 1px solid var(--grey-color);
-    margin-right: 10px;
-    border-radius: 10px;
+.shoppingCart .products .box .title {
+    height: 60px;
+    overflow: hidden;
     position: relative;
-    bottom: 2px;
-    width: 70px;
+    top: 40px;
 }
 
-.shoppingCart .products .box button {
+.shoppingCart .products .box .quantity input {
+    width: 60px;
+}
+
+.shoppingCart .products .box .icons button {
     position: relative;
     bottom: 5px !important;
     margin-right: 10px;
@@ -61,8 +66,8 @@
 }
 
 .shoppingCart .products .box h3,
-.shoppingCart .products .box .quantity,
-.shoppingCart .products .box .delete {
+.shoppingCart .products .box .quantity input,
+.shoppingCart .products .box .icons {
     position: relative;
     top: calc(30vh/3);
     text-transform: capitalize;
@@ -74,8 +79,8 @@
     transform: scale(0);
     opacity: 0;
     font-size: 0;
-    position: absolute;
-    bottom: 150px !important;
+    position: relative;
+        bottom: 2px;
 }
 
 .shoppingCart .products .box:hover .delete {
@@ -83,7 +88,6 @@
     font-size: 28px;
     opacity: 1;
 }
-
 /* total */
 .totalBox {
     display: flex;
@@ -125,4 +129,55 @@
     margin: auto;
     position: relative;
     left: 80px;
+    }
+    
+    /* responsive */
+    @media (min-width:100px) and (max-width:770px) {
+    
+        .shoppingCart .products .box {
+            height: 100% !important;
+        }
+    
+        .shoppingCart .products .box .imgDiv {
+            width: 90%;
+            height: 100%;
+        }
+    
+        .shoppingCart .products .box .title {
+            height: 60px;
+            overflow: hidden;
+            margin-bottom: 30%;
+        }
+    
+    
+        .shoppingCart .products .box .price,
+        .shoppingCart .products .box .quantity input {
+            position: relative;
+            top: 5px;
+        }
+    
+        .shoppingCart .products .box .icons {
+            position: relative;
+            top: -6px;
+        }
+    
+}
+/* total responsive */
+@media (min-width:100px) and (max-width:1200px){
+    .totalBox{
+        /* width: 40%; */
+        margin: auto !important;
+        position: fixed;
+        /* left: 3% !important; */
+        padding: 10px;
+        display: unset;
+        justify-content: space-evenly !important;
+    }
+    .totalBox button{
+        /* width: ; */
+    }
+    .totalBox h3{
+        position: relative;
+        left: 1px ;
+    }
 }

@@ -10,7 +10,7 @@ function About(props) {
           <h1>ABOUT US</h1>
           <div className="content">
             <Row>
-              <Col xs={5}>
+              <Col xs={12} md={5}>
                 <img
                   src="https://unrivaled-otter-0d293c.netlify.app/static/media/5078a05eb1b6847d93383eaa4c0ed500.c9a88b5a2e8d1c0a93bb.gif"
                   alt="about img"
@@ -19,7 +19,7 @@ function About(props) {
                   data-aos-duration="1000"
                 />
               </Col>
-              <Col xs={7}>
+              <Col xs={12} md={7}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
                   enim doloribus velit laudantium nobis harum tempore voluptatem
