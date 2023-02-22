@@ -20,7 +20,7 @@ function NavBar(props) {
     } else {
       dispatch(login());
     }
-    console.log(globalState.authReducer);
+    console.log(login);
   };
   // //////////////////////////////////////////////////////////////////////
   return (
@@ -28,9 +28,9 @@ function NavBar(props) {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           {/* logo */}
-          <NavLink className="navbar-brand logo" to="/">
+          <Link className="navbar-brand logo" to="/">
             <img src="../../../../Logo.jpeg" alt="logo" />
-          </NavLink>
+          </Link>
           {/* toggle button */}
           <button
             className="navbar-toggler"
@@ -47,27 +47,27 @@ function NavBar(props) {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               <li className="nav-item active">
-                <NavLink className="nav-link" to="/">
+                <Link className="nav-link" to="/">
                   Home
-                </NavLink>
+                </Link>
               </li>
               {/* //// */}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/about">
+                <Link className="nav-link" to="/about">
                   About
-                </NavLink>
+                </Link>
               </li>
               {/* //// */}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">
+                <Link className="nav-link" to="/contact">
                   Contact
-                </NavLink>
+                </Link>
               </li>
             </ul>
             {/* //// */}
             <ul className="navbar-nav my-2 my-lg-0 icons">
               <li className="nav-item" title="go to products you wish to buy">
-                <NavLink
+                <Link
                   className="nav-link"
                   to={login ? "/wish-products" : "/"}
                   onClick={
@@ -75,18 +75,17 @@ function NavBar(props) {
                   }
                 >
                   <span className="circle">
-                    {globalState.wishListReducer.wishlist.length}
-                    mai
+                    {globalState.wishListReducer.wishlist?.length}m
                   </span>
 
                   <span className="cart_wish">
                     <i className="ri-heart-3-fill"></i>
                   </span>
-                </NavLink>
+                </Link>
               </li>
               {/* //// */}
               <li className="nav-item" title="go to cart">
-                <NavLink
+                <Link
                   className="nav-link"
                   to={login ? "/cart" : "/"}
                   onClick={
@@ -94,23 +93,24 @@ function NavBar(props) {
                   }
                 >
                   <i className="ri-shopping-cart-fill"></i>
-                </NavLink>
+                </Link>
               </li>
               {/* //// */}
               <li
                 className="nav-item"
                 title="login"
-                onClick={() => handleLogin(globalState.authReducer.isLogged)}
+                onClick={() => handleLogin(login)}
               >
-                <NavLink className="nav-link" to="/login">
+                <Link
+                  className="nav-link"
+                  to="/login"
+                >
                   <i
                     className={
-                      globalState.authReducer.isLogged
-                        ? "ri-logout-box-line"
-                        : "ri-login-box-line"
+                      login ? "ri-logout-box-line" : "ri-login-box-line"
                     }
                   ></i>
-                </NavLink>
+                </Link>
               </li>
               {/* //// */}
             </ul>

@@ -14,7 +14,8 @@ function Product(props) {
   const [product, setProduct] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  const Current_ID = Number(window.location.pathname.slice(9));
+  // const Current_ID = Number(window.location.pathname.slice(9));
+  const Current_ID =5;
 
   // redux
   // global state
