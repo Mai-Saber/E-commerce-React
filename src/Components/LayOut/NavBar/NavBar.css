@@ -30,6 +30,32 @@ nav ul li a {
   left: 15%;
 }
 
+/*  */
+.cart_wish i {
+  position: 'relative';
+  z-index: '999' !important;
+
+}
+
+nav .circle {
+  position: absolute;
+  z-index: 2;
+  top: 0.6rem;
+  left: 1.7rem;
+  font-size: 0.8rem;
+  background-color: var(--white-color);
+  color: var(--main-color) !important;
+  border: 1px solid var(--main-color);
+  padding: 0.2rem;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 0.5rem;
+}
+
+/* responsive */
 @media (min-width: 100px) and (max-width: 400px) {
   nav {
     height: fit-content;

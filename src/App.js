@@ -6,7 +6,7 @@ import "animate.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
 
 import NavBar from "./Components/LayOut/NavBar/NavBar";
 import Home from "./Components/Home/Home";
@@ -18,6 +18,7 @@ import Login from "./Components/Login/Login";
 import Error from "./Components/Commons/ErrorPage/Error";
 import WishProducts from "./Components/Wish Products/wishProducts";
 import Checkout from "./Components/CheckOut/Checkout";
+import ProtectedRoute from "./Components/Commons/ProtectedRoute";
 
 // ///////////////////////////////////////
 
@@ -28,17 +29,19 @@ function App() {
         <ToastContainer />
         <NavBar />
         <main className="main" id="main">
-          <Switch>
-            <Route path="/" exact component={Home} />,
-            <Route path="/contact" component={Contact} />
-            <Route path="/About" component={About} />
-            <Route path="/product/:id" component={Product} />
-            <Route path="/wish-products" component={WishProducts} />
-            <Route path="/cart" component={Cart} />,
-            <Route path="/login" component={Login} />
-            <Route path="/check_out" component={Checkout} />
-            <Route path="*" component={Error} />
-          </Switch>
+          <Routes>
+            <Route path="/" exact element={<Home />} />,
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/wish-products" element={<WishProducts />} />
+              <Route path="/cart" element={<Cart />} />,
+              <Route path="/check_out" element={<Checkout />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
         </main>
       </BrowserRouter>
     </>

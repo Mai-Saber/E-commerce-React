@@ -4,13 +4,14 @@ import "./NavBar.css";
 import { useSelector, useDispatch } from "react-redux";
 import authReducer from "../../../Store/Auth";
 import { login, logout } from "../../../Store/Auth";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import wishListReducer from "../../../Store/WishList";
 
 function NavBar(props) {
   // redux usage
-  const globalState = useSelector((state) => {
-    return state;
-  });
+  const globalState = useSelector((state) => state);
+  const login = globalState.authReducer.isLogged;
   const dispatch = useDispatch();
 
   const handleLogin = (status) => {
@@ -27,9 +28,9 @@ function NavBar(props) {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           {/* logo */}
-          <Link className="navbar-brand logo" to="/">
+          <NavLink className="navbar-brand logo" to="/">
             <img src="../../../../Logo.jpeg" alt="logo" />
-          </Link>
+          </NavLink>
           {/* toggle button */}
           <button
             className="navbar-toggler"
@@ -46,39 +47,62 @@ function NavBar(props) {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               <li className="nav-item active">
-                <Link className="nav-link" to="/">
+                <NavLink className="nav-link" to="/">
                   Home
-                </Link>
+                </NavLink>
               </li>
+              {/* //// */}
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <NavLink className="nav-link" to="/about">
                   About
-                </Link>
+                </NavLink>
               </li>
+              {/* //// */}
               <li className="nav-item">
-                <Link className="nav-link" to="/contact">
+                <NavLink className="nav-link" to="/contact">
                   Contact
-                </Link>
+                </NavLink>
               </li>
             </ul>
             {/* //// */}
             <ul className="navbar-nav my-2 my-lg-0 icons">
               <li className="nav-item" title="go to products you wish to buy">
-                <Link className="nav-link" to="/wish-products">
-                  <i className="ri-heart-3-fill"></i>
-                </Link>
+                <NavLink
+                  className="nav-link"
+                  to={login ? "/wish-products" : "/"}
+                  onClick={
+                    !login ? () => toast.error("Please Login First") : null
+                  }
+                >
+                  <span className="circle">
+                    {globalState.wishListReducer.wishlist.length}
+                    mai
+                  </span>
+
+                  <span className="cart_wish">
+                    <i className="ri-heart-3-fill"></i>
+                  </span>
+                </NavLink>
               </li>
+              {/* //// */}
               <li className="nav-item" title="go to cart">
-                <Link className="nav-link" to="/cart">
+                <NavLink
+                  className="nav-link"
+                  to={login ? "/cart" : "/"}
+                  onClick={
+                    !login ? () => toast.error("Please Login First") : null
+                  }
+                >
                   <i className="ri-shopping-cart-fill"></i>
-                </Link>
+                </NavLink>
               </li>
+              {/* //// */}
               <li
                 className="nav-item"
                 title="login"
                 onClick={() => handleLogin(globalState.authReducer.isLogged)}
               >
-                <Link className="nav-link" to="/login">
+                <NavLink className="nav-link" to="/login">
                   <i
                     className={
                       globalState.authReducer.isLogged
@@ -86,8 +110,9 @@ function NavBar(props) {
                         : "ri-login-box-line"
                     }
                   ></i>
-                </Link>
+                </NavLink>
               </li>
+              {/* //// */}
             </ul>
           </div>
         </div>
