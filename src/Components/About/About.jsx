@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.css";
 import { Row, Col } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 function About(props) {
   return (
@@ -34,7 +35,7 @@ function About(props) {
                   praesentium fuga,
                 </p>
                 <button className="btn contact" title="contact us">
-                  <a href="/contact">Contact Us</a>
+                  <Link to="/contact">Contact Us</Link>
                 </button>
               </Col>
             </Row>

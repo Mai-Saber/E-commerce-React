@@ -1,40 +1,40 @@
-import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import "./Checkout.css";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import { pink } from "@mui/material/colors";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
+import React, { useState } from 'react'
+import { Row, Col } from 'react-bootstrap'
+import './Checkout.css'
+import TextField from '@mui/material/TextField'
+import MenuItem from '@mui/material/MenuItem'
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import { pink } from '@mui/material/colors'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
 
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import { Button } from "@mui/material";
+import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
+import { Button } from '@mui/material'
 
 function Checkout(props) {
   const cart = [
-    { name: "mai", price: "22 $", quantity: "1", category: "clothes" },
-  ];
-  let [otherChecked, setOtherChecked] = useState(false);
+    { name: 'mai', price: '22 $', quantity: '1', category: 'clothes' },
+  ]
+  let [otherChecked, setOtherChecked] = useState(false)
 
   const handleChangeRadio = (e) => {
-    console.log(e.target.value);
-    if (e.target.value === "other") {
-      setOtherChecked(true);
+    console.log(e.target.value)
+    if (e.target.value === 'other') {
+      setOtherChecked(true)
     } else {
-      setOtherChecked(false);
+      setOtherChecked(false)
     }
-  };
+  }
 
   return (
     <>
       <div className="checkout">
         <div className="container">
           <Row>
-            <Col xs={7}>
+            <Col xs={12} md={7}>
               <form>
                 {/* name */}
                 <Row>
@@ -124,7 +124,7 @@ function Checkout(props) {
                         defaultChecked
                         sx={{
                           color: pink[100],
-                          "&.Mui-checked": {
+                          '&.Mui-checked': {
                             color: pink[400],
                           },
                         }}
@@ -137,7 +137,7 @@ function Checkout(props) {
                       <Checkbox
                         sx={{
                           color: pink[100],
-                          "&.Mui-checked": {
+                          '&.Mui-checked': {
                             color: pink[400],
                           },
                         }}
@@ -164,7 +164,7 @@ function Checkout(props) {
                         <Radio
                           sx={{
                             color: pink[100],
-                            "&.Mui-checked": {
+                            '&.Mui-checked': {
                               color: pink[400],
                             },
                           }}
@@ -178,7 +178,7 @@ function Checkout(props) {
                         <Radio
                           sx={{
                             color: pink[100],
-                            "&.Mui-checked": {
+                            '&.Mui-checked': {
                               color: pink[400],
                             },
                           }}
@@ -192,7 +192,7 @@ function Checkout(props) {
                         <Radio
                           sx={{
                             color: pink[100],
-                            "&.Mui-checked": {
+                            '&.Mui-checked': {
                               color: pink[400],
                             },
                           }}
@@ -208,7 +208,7 @@ function Checkout(props) {
                       variant="filled"
                       type="text"
                       style={{
-                        display: otherChecked ? "inline-block" : "none",
+                        display: otherChecked ? 'inline-block' : 'none',
                       }}
                     />
                   </RadioGroup>
@@ -217,7 +217,7 @@ function Checkout(props) {
                 {/* card information */}
                 <Row>
                   <Col xs={6}>
-                    {" "}
+                    {' '}
                     <TextField
                       id="filled-basic"
                       className="textField"
@@ -227,7 +227,7 @@ function Checkout(props) {
                     />
                   </Col>
                   <Col xs={6}>
-                    {" "}
+                    {' '}
                     <TextField
                       id="filled-basic"
                       className="textField"
@@ -246,7 +246,7 @@ function Checkout(props) {
                     />
                   </Col>
                   <Col xs={6}>
-                    {" "}
+                    {' '}
                     <TextField
                       id="filled-basic"
                       className="textField"
@@ -256,14 +256,14 @@ function Checkout(props) {
                     />
                   </Col>
                 </Row>
-                <hr />
+
                 <button type="submit" className="btn btn-primary submitData">
                   Submit
                 </button>
               </form>
             </Col>
             {/* cart/////////////////////////////////////////////////// */}
-            <Col xs={5}>
+            <Col xs={12} md={5}>
               <div className="cart">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-muted">Your cart</span>
@@ -281,7 +281,7 @@ function Checkout(props) {
                       </div>
                       <span class="text-muted">
                         {ele.price}x
-                        <span style={{ color: "var(--main-color)" }}>
+                        <span style={{ color: 'var(--main-color)' }}>
                           {ele.quantity}
                         </span>
                       </span>
@@ -314,7 +314,7 @@ function Checkout(props) {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Checkout;
+export default Checkout

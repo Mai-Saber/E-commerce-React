@@ -1,5 +1,6 @@
 import React from "react";
 import "./Error.css";
+import { Link } from 'react-router-dom';
 
 function Error(props) {
   return (
@@ -17,7 +18,7 @@ function Error(props) {
           alt="error img"
         />
         <button className="btn return">
-          <a href="/">Return To Home</a>
+          <Link to="/">Return To Home</Link>
         </button>
       </div>
     </div>

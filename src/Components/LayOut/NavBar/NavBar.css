@@ -1,51 +1,71 @@
 nav {
-    box-shadow: 4px 4px 4px 4px rgba(128, 128, 128, 0.72);
-    width: 50%;
-    height: 60px;
-    border-radius: 50px;
-    padding: 0px 10px !important;
-    position: fixed !important;
-    top: 5px;
-    left: 20%;
-    /* (100%-width)/2 */
-    z-index: 999;
-    font-size: 20px;
-    background-color: var(--white-color);
+  box-shadow: 4px 4px 4px 4px rgba(128, 128, 128, 0.72);
+  width: 50%;
+  height: 60px;
+  border-radius: 50px;
+  padding: 0px 10px !important;
+  position: fixed !important;
+  top: 5px;
+  left: 20%;
+  /* (100%-width)/2 */
+  z-index: 999;
+  font-size: 20px;
+  background-color: var(--white-color);
 }
 
 nav .logo img {
-    width: 80px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 30px;
+  width: 80px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 30px;
 }
 
 nav ul li a {
-    margin-right: 10px !important;
-    color: var(--main-color) !important;
+  margin-right: 10px !important;
+  color: var(--main-color) !important;
 }
 
 .icons {
-    position: relative;
-    left: 15%;
+  position: relative;
+  left: 15%;
 }
 
-@media (min-width:100px)and (max-width:1200px) {
-    nav {
-        height: unset;
+@media (min-width: 100px) and (max-width: 400px) {
+  nav {
+    height: fit-content;
+    width: fit-content;
+    position: fixed;
+    left: 0 !important;
+    padding: 0 !important;
+  }
 
-    }
+  nav .logo img {
+    margin-right: 0;
+  }
 
-    nav .navbar-toggler {
-        color: var(--main-color) !important;
-    }
-
-    nav ul li a {
-        color: var(--main-color) !important;
-    }
-
-.icons {
+  nav .icons {
     position: relative;
     left: 0;
-    }
+  }
+}
+
+@media (min-width: 400px) and (max-width: 1200px) {
+  nav {
+    height: unset;
+    width: fit-content;
+    left: 30%;
+  }
+
+  nav .navbar-toggler {
+    color: var(--main-color) !important;
+  }
+
+  nav ul li a {
+    color: var(--main-color) !important;
+  }
+
+  .icons {
+    position: relative;
+    left: 0;
+  }
 }

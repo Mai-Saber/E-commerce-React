@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "remixicon/fonts/remixicon.css";
 import "animate.css";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./Components/LayOut/NavBar/NavBar";
@@ -22,6 +25,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ToastContainer />
         <NavBar />
         <main className="main" id="main">
           <Switch>

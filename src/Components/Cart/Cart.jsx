@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCart} from "../../Store/Cart";
+import { Link } from 'react-router-dom';
 
 
 function Cart(prop) {
@@ -10,8 +11,9 @@ function Cart(prop) {
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
   const cart = globalState.cartReducer.cart;
+
   // ///////////////////////////////////////////
-  
+
   // ////////////////////////////////////////////////
 
   return (
@@ -24,7 +26,7 @@ function Cart(prop) {
             alt=""
           />
           <button className="btn">
-            <a href="/">Shop Now</a>
+            <Link to="/">Shop Now</Link>
           </button>
         </div>
       )}
@@ -85,7 +87,7 @@ function Cart(prop) {
           {/* total */}
           <div className="totalBox box">
             <button className="btn proceed">
-              <a href="/check_out">Proceed To Checkout</a>
+              <Link to="/check_out">Proceed To Checkout</Link>
             </button>
             <h3>Total = {globalState.cartReducer.total} $ </h3>
           </div>

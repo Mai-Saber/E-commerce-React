@@ -5,12 +5,15 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { ColorRing } from "react-loader-spinner";
 import { Typewriter } from "react-simple-typewriter";
 import * as service from "../../Services/Api";
+import Rating from "@mui/material/Rating";
 
 import "animate.css";
 import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../Store/Cart";
 import { addToLovelyList, removeFromLovelyList } from "../../Store/WishList";
+import { toast } from "react-toastify";
+import { Link } from 'react-router-dom';
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -212,7 +215,7 @@ function Home(props) {
           <div className="shopContainer">
             <Row>
               {/* filtration */}
-              <Col xs={12} md={4} lg={4}>
+              <Col xs={12} lg={4}>
                 <div className="filtration">
                   <h4>Select Category </h4>
                   <ul>
@@ -240,14 +243,14 @@ function Home(props) {
                 </div>
               </Col>
               {/* products */}
-              <Col xs={12} md={8} lg={8}>
+              <Col xs={12} lg={8}>
                 <div className="shopProducts">
                   <h1>{categoryName} section</h1>
                   <div className="boxes">
                     {/* product card */}
                     <Row>
                       {categoryProducts?.map((product) => (
-                        <Col xs={12} sm={6} lg={4} key={product.id}>
+                        <Col xs={12} sm={6} xl={4} key={product.id}>
                           <div
                             className="card"
                             data-aos="flip-up"
@@ -283,7 +286,9 @@ function Home(props) {
                                     color="primary"
                                     aria-label="add to shopping cart"
                                     title="add to shopping cart"
-                                    onClick={() => dispatch(addToCart(product))}
+                                    onClick={() => {
+                                      dispatch(addToCart(product));
+                                    }}
                                   >
                                     <AddShoppingCartIcon />
                                   </IconButton>
@@ -294,13 +299,22 @@ function Home(props) {
                               <h3>Description:</h3>
                               <p>{product.title}</p>
                             </div>
+                            <div className="rating">
+                              <Rating
+                                name="read-only"
+                                value={Math.floor(product?.rating.rate)}
+                                readOnly
+                              />
+                            </div>
                             <button
                               className="btn details"
                               title="go to this product details"
                             >
-                              <a href={"/product/" + product.id}>
+                              <Link
+                                to={`/product/${product?.id}`}
+                              >
                                 More Details
-                              </a>
+                              </Link>
                             </button>
                           </div>
                         </Col>

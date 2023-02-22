@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import TextField from "@mui/material/TextField";
 import { Bars } from "react-loader-spinner";
 import "./Contact.css";
+import { toast } from "react-toastify";
 
 function Contact(props) {
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ function Contact(props) {
     subject: "",
     message: "",
   });
-  const [disabled, setDisabled] = useState(true);
+  const [toastContent, setToastContent] = useState(false);
 
   useEffect(() => {
     setTimeout(function () {
@@ -31,7 +32,8 @@ function Contact(props) {
   const handleSubmit = () => {
     console.log("contact", contact);
     handleReset();
-    setDisabled(!disabled);
+    setToastContent(!toastContent);
+    toast.success("DONE");
   };
   //////////////////////////////////////////
   const handleReset = () => {
@@ -134,6 +136,14 @@ function Contact(props) {
                     type="reset"
                     title="Delete all data"
                     onClick={handleReset}
+                    disabled={
+                      !contact.email &&
+                      !contact.message &&
+                      !contact.phone &&
+                      !contact.subject
+                        ? true
+                        : false
+                    }
                   >
                     Reset
                   </button>
@@ -143,6 +153,7 @@ function Contact(props) {
                     type="submit"
                     title="Send Data"
                     onClick={handleSubmit}
+                    disabled={!contact.email || !contact.message ? true : false}
                   >
                     Submit
                   </button>

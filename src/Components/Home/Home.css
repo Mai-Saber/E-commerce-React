@@ -1,204 +1,211 @@
 .home .carousel {
-    height: 80vh !important;
-    margin-bottom: 5px;
-    position: relative;
+  height: 80vh !important;
+  margin-bottom: 5px;
+  position: relative;
 }
 
 .home .carousel img {
-    height: 80vh !important;
+  height: 80vh !important;
 }
 
 .home .carousel .heading {
-    width: 50%;
-    height: fit-content;
-    position: absolute;
-    top: 40%;
-    right: 24%;
-    color: var(--white-color);
-    font-weight: bold;
-    font-style: italic;
-    font-family: 'Nerko One', cursive;
-    font-size: 4rem;
-    text-transform: uppercase;
-    text-align: center;
+  width: 50%;
+  height: fit-content;
+  position: absolute;
+  top: 40%;
+  right: 24%;
+  color: var(--white-color);
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Nerko One', cursive;
+  font-size: 4rem;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 /* //////////////////////////////////////// */
 /* shopContainer */
 /* filtration */
 .home .shopContainer {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .home .shopContainer .filtration {
-    border: 1px solid black;
-    position: sticky;
-    top: 10;
-    margin-top: 50px;
-    margin-left: 50px;
-    text-align: center;
-    width: 80%;
-    border-radius: 20px;
-    padding: 20px;
+  border: 1px solid black;
+  position: sticky;
+  top: 10;
+  margin-top: 50px;
+  margin-left: 50px;
+  text-align: center;
+  width: 80%;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .home .shopContainer .filtration h4 {
-    text-align: center;
-    color: var(--main-color);
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--grey-color);
+  text-align: center;
+  color: var(--main-color);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--grey-color);
 }
 
 .home .shopContainer .filtration ul li:not(:last-of-type) {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .home .shopContainer .filtration ul li button {
-    width: 100%;
-    text-transform: capitalize;
+  width: 100%;
+  text-transform: capitalize;
 }
 
 /* //////////////// */
 /* shopProducts */
 .home .shopProducts h1 {
-    color: var(--main-color);
-    position: relative;
-    left: 50px;
-    margin: 15px;
-        text-transform: capitalize;
+  color: var(--main-color);
+  position: relative;
+  left: 50px;
+  margin: 15px;
+  text-transform: capitalize;
 }
 
 .home .shopProducts .card {
-    padding: 5px;
-    position: relative;
-    height: 80%;
-width: 100%;
+  padding: 5px;
+  position: relative;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .home .shopProducts .card:hover {
-    box-shadow: 3px 5px 5px 5px rgba(128, 128, 128, 0.756);
+  box-shadow: 3px 5px 5px 5px rgba(128, 128, 128, 0.756);
 }
 
 .home .shopContainer .boxes .card .imgDiv {
-    margin-bottom: 20px;
-    height: 60%;
-    width: 100%;
-        padding: 10px;
+  margin-bottom: 20px;
+  height: 50% !important;
+  width: 100% !important;
+  padding: 10px;
 }
 .home .shopContainer .boxes .card .imgDiv img {
-    height: 100% !important;
-    width: 100% !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 .home .shopContainer .boxes .card .price {
-    width: fit-content;
-    border-radius: 50%;
-    padding: 0 5px;
-    height: 50px;
-    position: absolute;
-    text-align: center;
-    color: var(--white-color);
+  width: fit-content;
+  border-radius: 50%;
+  padding: 0 5px;
+  height: 50px;
+  position: absolute;
+  text-align: center;
+  color: var(--white-color);
 }
 
 .home .shopContainer .boxes .card .price p {
-    position: relative;
-    top: 10%;
-    font-size: 30px;
+  position: relative;
+  top: 10%;
+  font-size: 30px;
 }
 
 .home .shopProducts .boxes .card .price,
 .home .shopProducts .boxes .card .details {
-    background-color: var(--main-color);
-    color: var(--white-color) !important;
-    font-family: 'Nerko One', cursive;
-    font-size: 1.5rem;
+  background-color: var(--main-color);
+  color: var(--white-color) !important;
+  font-family: 'Nerko One', cursive;
+  font-size: 1.5rem;
 }
 
 .home .shopProducts .boxes .card .buttons {
-    display: flex;
-    position: relative;
-    bottom: 30px;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        height: 40px;
+  display: flex;
+  position: relative;
+  bottom: 30px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 40px;
 }
 
 .home .shopProducts .boxes .card .buttons .section {
-    width: 90% !important;
-        overflow: hidden;
-    background-color: grey;
-    color: var(--white-color);
-        height: 30px;
-        padding: 5px 2px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 140px;
-    text-transform: uppercase;
+  width: 90% !important;
+  overflow: hidden;
+  background-color: grey;
+  color: var(--white-color);
+  height: 30px;
+  padding: 5px 2px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 140px;
+  text-transform: uppercase;
 }
 
 .home .shopProducts .boxes .card .buttons .left_buttons {
-    display: flex;
-    position: relative;
-    justify-content: space-evenly;
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
 }
 .home .shopProducts .boxes .card .buttons .left_buttons button {
-    position: relative;
-    bottom: 5px;
-    font-size: 25px;
+  position: relative;
+  bottom: 5px;
+  font-size: 25px;
 }
 
-.home .shopProducts .boxes .card .buttons .left_buttons .heart{
-    color: var(--main-color) !important;
-    position: relative;
-    bottom: 5px;
-    padding: 1;
-    left: 10px;
+.home .shopProducts .boxes .card .buttons .left_buttons .heart {
+  color: var(--main-color) !important;
+  position: relative;
+  bottom: 5px;
+  padding: 1;
+  left: 10px;
 }
 
 .home .shopProducts .boxes .card .cardContent {
-    line-height: 1;
-    position: relative;
-    bottom: 50px;
-        height: 90px;
-        margin-bottom: 10px;
-    
-        overflow: hidden;
+  line-height: 1;
+  position: relative;
+  bottom: 50px;
+  height: 90px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  padding: 0 10px;
 }
 
+.home .shopProducts .boxes .card .rating {
+  position: relative;
+  bottom: 50px;
+  left: 30%;
+}
 .home .shopProducts .boxes .card .details {
-    position: absolute;
-        bottom: 3px;
-        width: 95%;
-        margin: auto;
-        display: block;
+  position: absolute;
+  bottom: 3px;
+  width: 95%;
+  margin: auto;
+  display: block;
 }
 
 .home .shopProducts .boxes .card .details a {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 /* loading */
 .loading {
-    text-align: center;
-    margin-top: 200px !important;
+  text-align: center;
+  margin-top: 200px !important;
 }
 /* /////////// */
 
-@media (min-width:100px) and (max-width:575px) {
-    .shopProducts .card {
-        height: fit-content !important;
-        width: 80% !important;
-        margin: 10px 10%;
+@media (min-width: 100px) and (max-width: 575px) {
+  .shopProducts .card {
+    height: 500px !important;
+    width: 80% !important;
+    margin: 10px 10%;
+  }
 
-    }
-
-    .shopContainer .imgDiv {
-        height: 300px !important;
-        width:300px !important;
-        margin: auto;
-    }
-
-    .home .shopProducts .boxes .card .buttons .section {
-        width: 50% !important;
-    }
+  .shopContainer .imgDiv {
+    height: 50% !important;
+    width: 60% !important;
+    /* margin: auto; */
+  }
+.shopContainer .imgDiv img{
+  height: 50% !important;
+}
+  .home .shopProducts .boxes .card .buttons .section {
+    width: 50% !important;
+  }
 }

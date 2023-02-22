@@ -5,6 +5,7 @@ import "./wishProducts.css";
 import { useSelector ,useDispatch } from "react-redux";
 import wishListReducer, { removeFromLovelyList } from "../../Store/WishList";
 import { addToCart } from "../../Store/Cart";
+import { Link } from "react-router-dom";
 
 function WishProducts(prop) {
   const wishListProducts = useSelector(
@@ -23,7 +24,7 @@ function WishProducts(prop) {
               alt=""
             />
             <button className="btn">
-              <a href="/">Return to Home</a>
+              <Link to="/">Return to Home</Link>
             </button>
           </div>
         )}
@@ -46,7 +47,7 @@ function WishProducts(prop) {
                       <h3 className="title"> {ele.title}</h3>
                     </Col>
                     <Col xs={6} md={3}>
-                      <h3 className="price">{ele.price}</h3>
+                      <h3 className="price">{Number.parseInt(ele.price)}</h3>
                     </Col>
                     <Col xs={6} md={4}>
                       <div className="icons">

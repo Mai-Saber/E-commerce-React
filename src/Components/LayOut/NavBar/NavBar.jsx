@@ -51,7 +51,7 @@ function NavBar(props) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="about">
+                <Link className="nav-link" to="/about">
                   About
                 </Link>
               </li>
