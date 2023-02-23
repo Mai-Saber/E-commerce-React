@@ -22,7 +22,8 @@ import WishProducts from "./Components/Wish Products/wishProducts";
 import Checkout from "./Components/CheckOut/Checkout";
 import ProtectedRoute from "./Components/Commons/ProtectedRoute/ProtectedRoute";
 import { useSelector, useDispatch } from "react-redux";
-import DarkModeReducer, { darkMode, lightMode } from "./Store/DarkMode";
+import { darkMode, lightMode } from "./Store/DarkMode";
+import ScrollToTop from "./Components/Commons/ScrollUp/ScrollUp";
 
 // ///////////////////////////////////////
 
@@ -55,6 +56,7 @@ function App() {
         </button>
 
         <BrowserRouter>
+          <ScrollToTop/>
           <ToastContainer />
           <NavBar />
           <main className="main" id="main">

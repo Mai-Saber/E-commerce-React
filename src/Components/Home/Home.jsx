@@ -13,7 +13,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../Store/Cart";
 import { addToLovelyList, removeFromLovelyList } from "../../Store/WishList";
 import { toast } from "react-toastify";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import ScrollToTop from "../Commons/ScrollUp/ScrollUp";
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -212,7 +213,7 @@ function Home(props) {
             </button>
           </div>
           {/* products */}
-          <div className="shopContainer">
+          <div className="shopContainer container">
             <Row>
               {/* filtration */}
               <Col xs={12} lg={4}>
@@ -244,9 +245,9 @@ function Home(props) {
               </Col>
               {/* products */}
               <Col xs={12} lg={8}>
-                <div className="shopProducts">
+                <div className="shopProducts container">
                   <h1>{categoryName} section</h1>
-                  <div className="boxes">
+                  <div className="boxes ">
                     {/* product card */}
                     <Row>
                       {categoryProducts?.map((product) => (
@@ -254,7 +255,6 @@ function Home(props) {
                           <div
                             className="card"
                             data-aos="flip-up"
-                            // data-aos-easing="linear"
                             data-aos-duration="1500"
                           >
                             <div className="imgDiv">
@@ -323,6 +323,8 @@ function Home(props) {
               </Col>
             </Row>
           </div>
+          {/* scroll to top */}
+          <ScrollToTop></ScrollToTop>
         </div>
       )}
     </>

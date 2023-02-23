@@ -62,13 +62,6 @@ function Contact(props) {
       )}
       {!loading && (
         <div className="contact">
-          <div className="cover">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY8xz-CfahhOINAxdJ28ZfKJMCNv7dIQIw5kgid6jAIFPjopKglSbuNpZoPb1zRxsfQQg&usqp=CAU"
-              alt=""
-            />
-          </div>
-
           <div className="content container">
             <Row>
               <Col xs={1} md={6}>

@@ -1,20 +1,32 @@
-import React from "react";
 import "./ScrollUp.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const ScrollUp = () => {
+function ScrollToTop() {
+  const [show, setShow] = useState(false);
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 400) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  });
+
+  const handleScroll = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   return (
-    <div>
-      <span
-        class="hero__scroll aos-init aos-animate"
-        data-aos="fade-up"
-        data-aos-easing="ease"
-        data-aos-delay="800"
-      >
-        Scroll down
-        <i class="ri-arrow-up-s-line chevron"></i>
-      </span>
-    </div>
+    <Link
+      className="toTopIcon"
+      to="#"
+      style={{ right: show ? "2rem" : "-5rem" }}
+      onClick={handleScroll}
+    >
+      <i class="ri-arrow-up-s-line"></i>
+    </Link>
   );
-};
+}
 
-export default ScrollUp;
+export default ScrollToTop;
