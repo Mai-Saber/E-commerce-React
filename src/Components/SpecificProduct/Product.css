@@ -9,7 +9,7 @@
 .product .firstSection {
   margin-top: 100px;
   border-bottom: 1px solid var(--grey-color);
-  height: 100% !important;
+  height: 85% !important;
 }
 
 .product .firstSection .imgDiv {

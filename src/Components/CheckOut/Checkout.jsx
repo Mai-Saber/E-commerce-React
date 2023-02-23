@@ -1,33 +1,35 @@
-import React, { useState } from 'react'
-import { Row, Col } from 'react-bootstrap'
-import './Checkout.css'
-import TextField from '@mui/material/TextField'
-import MenuItem from '@mui/material/MenuItem'
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
-import { pink } from '@mui/material/colors'
-import Radio from '@mui/material/Radio'
-import RadioGroup from '@mui/material/RadioGroup'
+import React, { useState } from "react";
+import { Row, Col } from "react-bootstrap";
+import "./Checkout.css";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { pink } from "@mui/material/colors";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 
-import FormControl from '@mui/material/FormControl'
-import FormLabel from '@mui/material/FormLabel'
-import { Button } from '@mui/material'
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import { Button } from "@mui/material";
+import { useSelector } from "react-redux";
+import cartReducer from "../../Store/Cart";
 
 function Checkout(props) {
-  const cart = [
-    { name: 'mai', price: '22 $', quantity: '1', category: 'clothes' },
-  ]
-  let [otherChecked, setOtherChecked] = useState(false)
+  const globalState = useSelector((state) => state);
+
+  const cart = globalState.cartReducer.cart;
+  let [otherChecked, setOtherChecked] = useState(false);
 
   const handleChangeRadio = (e) => {
-    console.log(e.target.value)
-    if (e.target.value === 'other') {
-      setOtherChecked(true)
+    console.log(e.target.value);
+    if (e.target.value === "other") {
+      setOtherChecked(true);
     } else {
-      setOtherChecked(false)
+      setOtherChecked(false);
     }
-  }
+  };
 
   return (
     <>
@@ -124,7 +126,7 @@ function Checkout(props) {
                         defaultChecked
                         sx={{
                           color: pink[100],
-                          '&.Mui-checked': {
+                          "&.Mui-checked": {
                             color: pink[400],
                           },
                         }}
@@ -137,7 +139,7 @@ function Checkout(props) {
                       <Checkbox
                         sx={{
                           color: pink[100],
-                          '&.Mui-checked': {
+                          "&.Mui-checked": {
                             color: pink[400],
                           },
                         }}
@@ -164,7 +166,7 @@ function Checkout(props) {
                         <Radio
                           sx={{
                             color: pink[100],
-                            '&.Mui-checked': {
+                            "&.Mui-checked": {
                               color: pink[400],
                             },
                           }}
@@ -178,7 +180,7 @@ function Checkout(props) {
                         <Radio
                           sx={{
                             color: pink[100],
-                            '&.Mui-checked': {
+                            "&.Mui-checked": {
                               color: pink[400],
                             },
                           }}
@@ -192,7 +194,7 @@ function Checkout(props) {
                         <Radio
                           sx={{
                             color: pink[100],
-                            '&.Mui-checked': {
+                            "&.Mui-checked": {
                               color: pink[400],
                             },
                           }}
@@ -208,7 +210,7 @@ function Checkout(props) {
                       variant="filled"
                       type="text"
                       style={{
-                        display: otherChecked ? 'inline-block' : 'none',
+                        display: otherChecked ? "inline-block" : "none",
                       }}
                     />
                   </RadioGroup>
@@ -217,7 +219,7 @@ function Checkout(props) {
                 {/* card information */}
                 <Row>
                   <Col xs={6}>
-                    {' '}
+                    {" "}
                     <TextField
                       id="filled-basic"
                       className="textField"
@@ -227,7 +229,7 @@ function Checkout(props) {
                     />
                   </Col>
                   <Col xs={6}>
-                    {' '}
+                    {" "}
                     <TextField
                       id="filled-basic"
                       className="textField"
@@ -246,7 +248,7 @@ function Checkout(props) {
                     />
                   </Col>
                   <Col xs={6}>
-                    {' '}
+                    {" "}
                     <TextField
                       id="filled-basic"
                       className="textField"
@@ -265,46 +267,46 @@ function Checkout(props) {
             {/* cart/////////////////////////////////////////////////// */}
             <Col xs={12} md={5}>
               <div className="cart">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                  <span class="text-muted">Your cart</span>
-                  <span class="badge badge-secondary badge-pill">3</span>
+                <h4 className="d-flex justify-content-between align-items-center mb-3">
+                  <span className="text-muted cartName">Your cart</span>
+                  <span className="badge badge-secondary badge-pill">
+                    {cart.length}
+                  </span>
                 </h4>
-                <ul class="list-group mb-3">
+                <ul className="list-group mb-3">
                   {cart.map((ele) => (
                     <li
                       key={ele.name}
-                      class="list-group-item d-flex justify-content-between lh-condensed"
+                      className="list-group-item d-flex justify-content-between lh-condensed"
                     >
                       <div>
-                        <h6 class="my-0">{ele.name}</h6>
-                        <small class="text-muted">{ele.category}</small>
+                        <h6 className="my-0">{ele.name}</h6>
+                        <small className="text-muted">{ele.category}</small>
                       </div>
-                      <span class="text-muted">
-                        {ele.price}x
-                        <span style={{ color: 'var(--main-color)' }}>
+                      <span className="text-muted">
+                        {Number.parseInt(ele.price)} $
+                        <span style={{ color: "var(--main-color)" }}>
                           {ele.quantity}
                         </span>
                       </span>
                     </li>
                   ))}
 
-                  <li class="list-group-item d-flex justify-content-between">
+                  <li className="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
-                    <strong>$20</strong>
+                    <strong>{globalState.cartReducer.total} $</strong>
                   </li>
                 </ul>
 
-                <form class="card p-2">
-                  <div class="input-group">
+                <form className="card p-2">
+                  <div className="input-group">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Promo code"
                     />
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-secondary">
-                        submit
-                      </button>
+                    <div className="input-group-append">
+                      <button className="btn btn-secondary">submit</button>
                     </div>
                   </div>
                 </form>
@@ -314,7 +316,7 @@ function Checkout(props) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Checkout
+export default Checkout;

@@ -310,9 +310,7 @@ function Home(props) {
                               className="btn details"
                               title="go to this product details"
                             >
-                              <Link
-                                to={`/product/${product?.id}`}
-                              >
+                              <Link to={`/product/${product?.id}`}>
                                 More Details
                               </Link>
                             </button>

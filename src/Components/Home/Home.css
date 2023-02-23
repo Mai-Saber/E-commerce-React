@@ -64,7 +64,7 @@
 .home .shopProducts h1 {
   color: var(--main-color);
   position: relative;
-  left: 50px;
+  left: 20%;
   margin: 15px;
   text-transform: capitalize;
 }

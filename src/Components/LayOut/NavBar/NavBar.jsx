@@ -14,14 +14,6 @@ function NavBar(props) {
   const login = globalState.authReducer.isLogged;
   const dispatch = useDispatch();
 
-  const handleLogin = (status) => {
-    if (status) {
-      dispatch(logout());
-    } else {
-      dispatch(login());
-    }
-    console.log(login);
-  };
   // //////////////////////////////////////////////////////////////////////
   return (
     <>
@@ -75,7 +67,7 @@ function NavBar(props) {
                   }
                 >
                   <span className="circle">
-                    {globalState.wishListReducer.wishlist?.length}m
+                    {globalState.wishListReducer.wishlist?.length}
                   </span>
 
                   <span className="cart_wish">
@@ -96,15 +88,8 @@ function NavBar(props) {
                 </Link>
               </li>
               {/* //// */}
-              <li
-                className="nav-item"
-                title="login"
-                onClick={() => handleLogin(login)}
-              >
-                <Link
-                  className="nav-link"
-                  to="/login"
-                >
+              <li className="nav-item" title="login">
+                <Link className="nav-link" to="/login">
                   <i
                     className={
                       login ? "ri-logout-box-line" : "ri-login-box-line"

@@ -1,0 +1,83 @@
+.dark {
+  background-color:grey;
+  color: var(--white-color);
+}
+
+.dark .home .shopContainer h4,
+.dark .home .shopContainer h1 {
+  color: var(--white-color) !important;
+}
+
+.dark .home .filtration {
+  border: 1px solid var(--white-color) !important;
+}
+
+.dark .home .shopContainer .filtration ul li:not(:last-of-type) {
+  border-bottom: 1px solid var(--white-color) !important;
+}
+
+.dark .home .shopContainer button {
+  color: rgba(228, 226, 226, 0.792);
+}
+
+.dark .home .shopContainer .card {
+  background-color: rgb(106, 104, 104);
+  color: var(--white-color);
+}
+
+.dark .home .shopContainer h3 {
+  color: rgb(172, 170, 170);
+}
+
+/* product */
+.dark .product {
+  color: var(--white-color);
+}
+
+.dark .product img {
+  border: 1px solid var(--white-color);
+  border-radius: 40px;
+  padding: 5px;
+}
+
+/* about */
+.dark .about p {
+  color: var(--white-color);
+}
+
+/* contact */
+.dark .contact {
+  color: var(--white-color);
+}
+
+.dark .contact form input {
+  background-color: rgba(229, 227, 227, 0.535);
+  border-radius: 10px;
+  width: 90%;
+  position: relative;
+  right: 2px;
+  color: var(--white-color);
+}
+
+/* wishList */
+.dark .wishList .product:hover,
+.dark .shoppingCart .box:hover,
+.dark .totalBox:hover {
+  color: var(--white-color);
+  background-color: var(--darkMode-color);
+}
+
+.dark .totalBox {
+  background-color: grey;
+}
+
+/* check out */
+.dark .checkout .cartName {
+  /* background-color: grey !important; */
+  color:var(--white-color) !important;
+}
+/* ///////////////////////////////////////////////////// */
+/* light mode */
+.light {
+  background-color: #fff;
+}

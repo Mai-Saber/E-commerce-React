@@ -14,15 +14,8 @@ function Product(props) {
   const [product, setProduct] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  // const Current_ID = Number(window.location.pathname.slice(9));
-  const Current_ID =5;
-
-  // redux
-  // global state
-  // const globalState = useSelector((state) => state);
-  // const post = useSelector((state) =>
-  //   state.posts.find((post) => post.id === postId)
-  // );
+  const Current_ID = Number(window.location.pathname.slice(9));
+  
 
   const dispatch = useDispatch();
 
