@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import NavBar from "./Components/LayOut/NavBar/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
 import Contact from "./Components/Contact/Contact";
 import About from "./Components/About/About";

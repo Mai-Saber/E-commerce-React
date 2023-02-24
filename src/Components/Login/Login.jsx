@@ -57,9 +57,7 @@ function Login(props) {
             title="must be more than 3 characters"
           />
           {account.password.trim() !== "" && account.password.length < 3 && (
-            <p className="alert alert-danger">
-              Must be more than 3 digits
-            </p>
+            <p className="alert alert-danger">Must be more than 3 digits</p>
           )}
 
           <Button
@@ -71,7 +69,15 @@ function Login(props) {
               !account.user || account.password.length < 3 ? true : false
             }
           >
-            <Link to="/">Submit</Link>
+            <Link
+              to={
+                window.location.pathname === "/login"
+                  ? "/"
+                  : window.location.pathname
+              }
+            >
+              Submit
+            </Link>
           </Button>
         </form>
       </div>

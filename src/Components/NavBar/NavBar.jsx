@@ -2,11 +2,13 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "./NavBar.css";
 import { useSelector, useDispatch } from "react-redux";
-import authReducer from "../../../Store/Auth";
-import { login, logout } from "../../../Store/Auth";
+import authReducer from "../../Store/Auth";
+import { login, logout } from "../../Store/Auth";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import wishListReducer from "../../../Store/WishList";
+import wishListReducer from "../../Store/WishList";
+import cartReducer from "../../Store/Cart";
+import { color } from "@mui/system";
 
 function NavBar(props) {
   // redux usage
@@ -20,9 +22,9 @@ function NavBar(props) {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           {/* logo */}
-          <Link className="navbar-brand logo" to="/">
+          <NavLink className="navbar-brand logo" to="/">
             <img src="../../../../Logo.jpeg" alt="logo" />
-          </Link>
+          </NavLink>
           {/* toggle button */}
           <button
             className="navbar-toggler"
@@ -38,64 +40,83 @@ function NavBar(props) {
           {/* //ul// */}
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li className="nav-item active">
-                <Link className="nav-link" to="/">
-                  Home
-                </Link>
-              </li>
+              {
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/">
+                    Home
+                  </NavLink>
+                </li>
+              }
               {/* //// */}
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <NavLink className="nav-link" to="/about">
                   About
-                </Link>
+                </NavLink>
               </li>
               {/* //// */}
               <li className="nav-item">
-                <Link className="nav-link" to="/contact">
+                <NavLink className="nav-link" to="/contact">
                   Contact
-                </Link>
+                </NavLink>
               </li>
             </ul>
             {/* //// */}
             <ul className="navbar-nav my-2 my-lg-0 icons">
               <li className="nav-item" title="go to products you wish to buy">
-                <Link
+                <NavLink
                   className="nav-link"
-                  to={login ? "/wish-products" : "/"}
+                  to="/wish-products"
                   onClick={
                     !login ? () => toast.error("Please Login First") : null
                   }
                 >
-                  <span className="circle">
-                    {globalState.wishListReducer.wishlist?.length}
-                  </span>
+                  {globalState.wishListReducer.wishList.length !== 0 && (
+                    <span className="wish_circle circle">
+                      {globalState.wishListReducer.wishList.length}
+                    </span>
+                  )}
 
-                  <span className="cart_wish">
+                  <span className="wish">
                     <i className="ri-heart-3-fill"></i>
                   </span>
-                </Link>
+                </NavLink>
               </li>
               {/* //// */}
               <li className="nav-item" title="go to cart">
-                <Link
+                <NavLink
                   className="nav-link"
-                  to={login ? "/cart" : "/"}
+                  to="/cart"
                   onClick={
                     !login ? () => toast.error("Please Login First") : null
                   }
                 >
-                  <i className="ri-shopping-cart-fill"></i>
-                </Link>
+                  {globalState.cartReducer.cart.length !== 0 && (
+                    <span className="cart_circle circle">
+                      {globalState.cartReducer.cart.length}
+                    </span>
+                  )}
+
+                  <span className="cart">
+                    <i className="ri-shopping-cart-fill"></i>
+                  </span>
+                </NavLink>
               </li>
               {/* //// */}
-              <li className="nav-item" title="login">
-                <Link className="nav-link" to="/login">
+              <li
+                className="nav-item"
+                title={login ? "click to logout" : " click to login"}
+              >
+                <NavLink
+                  className="nav-link"
+                  to="/login"
+                  onClick={login && (() => dispatch(logout()))}
+                >
                   <i
                     className={
                       login ? "ri-logout-box-line" : "ri-login-box-line"
                     }
                   ></i>
-                </Link>
+                </NavLink>
               </li>
               {/* //// */}
             </ul>
