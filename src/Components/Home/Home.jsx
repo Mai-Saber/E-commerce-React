@@ -27,16 +27,24 @@ function Home(props) {
   // global state
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
+  const cart = globalState.cartReducer.cart;
 
   useEffect(() => {
     // loading
     setTimeout(function () {
       setLoading(false);
-    }, 1000);
+    }, 4000);
 
     // products
     async function GetProducts() {
+      // const arr = [];
       const response = await service.AxiosFunction("get", "products");
+      // for (const product of response) {
+      //   arr.push({
+      //     ...product
+      //     // ,quantity: 2
+      //   });
+      // }
       setAllProducts(response);
       setCategoryProducts(response);
     }
@@ -82,15 +90,12 @@ function Home(props) {
       {/* loading spinner */}
       {loading && (
         <div className="loading">
-          <ColorRing
-            visible={true}
-            height="100"
-            width="200"
-            ariaLabel="blocks-loading"
-            wrapperStyle={{}}
-            wrapperClass="blocks-wrapper"
-            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-          />
+          <div className="sk-folding-cube">
+            <div className="sk-cube1 sk-cube"></div>
+            <div className="sk-cube2 sk-cube"></div>
+            <div className="sk-cube4 sk-cube"></div>
+            <div className="sk-cube3 sk-cube"></div>
+          </div>
         </div>
       )}
 
@@ -136,7 +141,7 @@ function Home(props) {
                     <span>
                       <Typewriter
                         words={[" Welcome in my store"]}
-                        loop={300}
+                        loop={1}
                         cursor
                         cursorStyle="_"
                         typeSpeed={200}
@@ -213,116 +218,132 @@ function Home(props) {
             </button>
           </div>
           {/* products */}
-          <div className="shopContainer container">
-            <Row>
-              {/* filtration */}
-              <Col xs={12} lg={4}>
-                <div className="filtration">
-                  <h4>Select Category </h4>
-                  <ul>
-                    <li>
-                      <button
-                        className="btn"
-                        title={"watch All Products"}
-                        onClick={() => handleFilterCategories("All Products")}
-                      >
-                        All Products
-                      </button>
-                    </li>
-                    {categories?.map((ele) => (
-                      <li key={ele}>
+          {categories.length === 0 && categoryProducts.length === 0 && (
+            <div className="spinner">
+              <p>Please Wait</p>
+              <div className="bounce1"></div>
+              <div className="bounce2"></div>
+              <div className="bounce3"></div>
+            </div>
+          )}
+          {categories.length > 0 && categoryProducts.length > 0 && (
+            <div className="shopContainer container">
+              <Row>
+                {/* filtration */}
+                <Col xs={12} lg={4}>
+                  <div className="filtration">
+                    <h4>Select Category </h4>
+                    <ul>
+                      <li>
                         <button
                           className="btn"
-                          title={"watch " + ele + " Section"}
-                          onClick={() => handleFilterCategories(ele)}
+                          title={"watch All Products"}
+                          onClick={() => handleFilterCategories("All Products")}
                         >
-                          {ele}
+                          All Products
                         </button>
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              </Col>
-              {/* products */}
-              <Col xs={12} lg={8}>
-                <div className="shopProducts container">
-                  <h1>{categoryName} section</h1>
-                  <div className="boxes ">
-                    {/* product card */}
-                    <Row>
-                      {categoryProducts?.map((product) => (
-                        <Col xs={12} sm={6} xl={4} key={product.id}>
-                          <div
-                            className="card"
-                            data-aos="flip-up"
-                            data-aos-duration="1500"
+                      {categories?.map((ele) => (
+                        <li key={ele}>
+                          <button
+                            className="btn"
+                            title={"watch " + ele + " Section"}
+                            onClick={() => handleFilterCategories(ele)}
                           >
-                            <div className="imgDiv">
-                              <img src={product.image} alt="product img" />
-                            </div>
-                            <div className="price">
-                              <p>{Number.parseInt(product.price)} $</p>
-                            </div>
-                            <div className="buttons">
-                              <div className="section" title={product.category}>
-                                {product.category}
-                              </div>
-                              <div className="left_buttons">
-                                <button
-                                  className="btn heart"
-                                  title="add to lovely products"
-                                  onClick={() => handleWishList(product)}
-                                >
-                                  <i
-                                    className={
-                                      wishList.includes(product)
-                                        ? "ri-heart-fill"
-                                        : "ri-heart-line"
-                                    }
-                                  ></i>
-                                </button>
-                                <span className="btn cart" title="add to cart">
-                                  <IconButton
-                                    color="primary"
-                                    aria-label="add to shopping cart"
-                                    title="add to shopping cart"
-                                    onClick={() => {
-                                      dispatch(addToCart(product));
-                                    }}
-                                  >
-                                    <AddShoppingCartIcon />
-                                  </IconButton>
-                                </span>
-                              </div>
-                            </div>
-                            <div className="cardContent">
-                              <h3>Description:</h3>
-                              <p>{product.title}</p>
-                            </div>
-                            <div className="rating">
-                              <Rating
-                                name="read-only"
-                                value={Math.floor(product?.rating.rate)}
-                                readOnly
-                              />
-                            </div>
-                            <button
-                              className="btn details"
-                              title="go to this product details"
-                            >
-                              <Link to={`/product/${product?.id}`}>
-                                More Details
-                              </Link>
-                            </button>
-                          </div>
-                        </Col>
+                            {ele}
+                          </button>
+                        </li>
                       ))}
-                    </Row>
+                    </ul>
                   </div>
-                </div>
-              </Col>
-            </Row>
-          </div>
+                </Col>
+                {/* products */}
+                <Col xs={12} lg={8}>
+                  <div className="shopProducts container">
+                    <h1>{categoryName} section</h1>
+                    <div className="boxes ">
+                      {/* product card */}
+                      <Row>
+                        {categoryProducts?.map((product) => (
+                          <Col xs={12} sm={6} xl={4} key={product.id}>
+                            <div
+                              className="card"
+                              data-aos="flip-up"
+                              data-aos-duration="1500"
+                            >
+                              <div className="imgDiv">
+                                <img src={product.image} alt="product img" />
+                              </div>
+                              <div className="price">
+                                <p>{Number.parseInt(product.price)} $</p>
+                              </div>
+                              <div className="buttons">
+                                <div
+                                  className="section"
+                                  title={product.category}
+                                >
+                                  {product.category}
+                                </div>
+                                <div className="left_buttons">
+                                  <button
+                                    className="btn heart"
+                                    title="add to lovely products"
+                                    onClick={() => handleWishList(product)}
+                                  >
+                                    <i
+                                      className={
+                                        wishList.includes(product)
+                                          ? "ri-heart-fill"
+                                          : "ri-heart-line"
+                                      }
+                                    ></i>
+                                  </button>
+                                  <span
+                                    className="btn cart"
+                                    title="add to cart"
+                                  >
+                                    <IconButton
+                                      color="primary"
+                                      aria-label="add to shopping cart"
+                                      title="add to shopping cart"
+                                      onClick={() => {
+                                        dispatch(addToCart(product));
+                                      }}
+                                    >
+                                      <AddShoppingCartIcon />
+                                    </IconButton>
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="cardContent">
+                                <h3>Description:</h3>
+                                <p>{product.title}</p>
+                              </div>
+                              <div className="rating">
+                                <Rating
+                                  name="read-only"
+                                  value={Math.floor(product?.rating.rate)}
+                                  readOnly
+                                />
+                              </div>
+                              <button
+                                className="btn details"
+                                title="go to this product details"
+                              >
+                                <Link to={`/product/${product?.id}`}>
+                                  More Details
+                                </Link>
+                              </button>
+                            </div>
+                          </Col>
+                        ))}
+                      </Row>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          )}
           {/* scroll to top */}
           <ScrollToTop></ScrollToTop>
         </div>

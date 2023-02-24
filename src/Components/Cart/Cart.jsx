@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFromCart} from "../../Store/Cart";
-import { Link } from 'react-router-dom';
-
+import { deleteFromCart, handleQuantity } from "../../Store/Cart";
+import { Link } from "react-router-dom";
 
 function Cart(prop) {
   // redux usage
@@ -12,9 +11,36 @@ function Cart(prop) {
   const dispatch = useDispatch();
   const cart = globalState.cartReducer.cart;
 
-  // ///////////////////////////////////////////
+  //////////////////////////////////////////////
+  const p = cart.filter((item) => item.id == 6);
+  console.log(p);
+  let n = 1;
 
-  // ////////////////////////////////////////////////
+  // /////////////////////////////
+  // const handleChange = (e, id) => {
+  // const product = cart.find((item) => item.id == id);
+  // const i = cart.indexOf(product);
+  // let newCart = cart.slice(i + 1);
+  // const obj = { ...product, quantity: e.target.value };
+  // // newCart.push(obj);
+  // newCart = [...newCart, obj ];
+  // console.log("p", product);
+  // console.log("c", newCart);
+  // };
+
+  // /////////////////////////////////////////
+  // use handle in redux
+  const handleChange = (e, product) => {
+    dispatch(
+      handleQuantity({
+        id: product.id,
+        value: e.target.value,
+        product: product,
+      })
+    );
+  };
+
+  //////////////////////////////////////////////////
 
   return (
     <>
@@ -56,12 +82,14 @@ function Cart(prop) {
                       <Col xs={5} md={4}>
                         <div className="quantity">
                           <input
+                            id="form1"
+                            min="1"
+                            max="2"
+                            // value={count}
+                            onChange={(e) => handleChange(e, product)}
+                            name="quantity"
                             type="number"
-                            id={product.id}
-                            className="quantityNum"
-                            value={product.quantity}
-                            // onChange={(e) => handleChange(e, product)}
-                            name="value"
+                            className="form-control form-control-sm"
                           />
                         </div>
                       </Col>

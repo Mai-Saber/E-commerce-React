@@ -24,6 +24,7 @@ const cartReducer = createSlice({
       toast.success("Added to Cart Successfully");
     },
 
+    // delete
     deleteFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
       // handle price
@@ -35,8 +36,15 @@ const cartReducer = createSlice({
       // toast
       toast.success("deleted Successfully");
     },
+
+    // handle quantity
+    handleQuantity: (state, action) => {
+      const cart = state.cart;
+      cart.filter((item) => item.id !== action.payload.id);
+      cart.push({ ...action.payload.product, quantity: action.payload.value });
+    },
   },
 });
 
 export default cartReducer;
-export const { addToCart, deleteFromCart } = cartReducer.actions;
+export const { addToCart, deleteFromCart, handleQuantity } = cartReducer.actions;

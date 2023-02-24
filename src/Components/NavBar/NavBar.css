@@ -6,8 +6,7 @@ nav {
   padding: 0px 10px !important;
   position: fixed !important;
   top: 5px;
-  left: 20%;
-  /* (100%-width)/2 */
+  left: 25%;
   z-index: 99999999999999;
   font-size: 20px;
   background-color: var(--white-color);
