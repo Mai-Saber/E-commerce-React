@@ -56,7 +56,7 @@ function App() {
         </button>
 
         <BrowserRouter>
-          <ScrollToTop/>
+          <ScrollToTop />
           <ToastContainer />
           <NavBar />
           <main className="main" id="main">
@@ -65,11 +65,11 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/About" element={<About />} />
               <Route path="/product/:id" element={<Product />} />
-              {/* <Route element={<ProtectedRoute />}> */}
+              <Route element={<ProtectedRoute />}>
                 <Route path="/wish-products" element={<WishProducts />} />
                 <Route path="/cart" element={<Cart />} />,
                 <Route path="/check_out" element={<Checkout />} />
-              {/* </Route> */}
+              </Route>
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<Error />} />
             </Routes>

@@ -43,20 +43,45 @@ function NavBar(props) {
               {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/">
-                    Home
+                    {/* span inside NavLink to toggle navbar,notice: this is the same toggle button's attributes   */}
+                    <span
+                      data-bs-toggle="collapse"
+                      data-bs-target="#navbarTogglerDemo02"
+                      aria-controls="navbarTogglerDemo02"
+                      aria-expanded="true"
+                      aria-label="Toggle navigation"
+                    >
+                      Home
+                    </span>
                   </NavLink>
                 </li>
               }
               {/* //// */}
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">
-                  About
+                  <span
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation"
+                  >
+                    About
+                  </span>
                 </NavLink>
               </li>
               {/* //// */}
               <li className="nav-item">
                 <NavLink className="nav-link" to="/contact">
-                  Contact
+                  <span
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation"
+                  >
+                    Contact
+                  </span>
                 </NavLink>
               </li>
             </ul>
@@ -76,7 +101,14 @@ function NavBar(props) {
                     </span>
                   )}
 
-                  <span className="wish">
+                  <span
+                    className="wish"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation"
+                  >
                     <i className="ri-heart-3-fill"></i>
                   </span>
                 </NavLink>
@@ -96,7 +128,14 @@ function NavBar(props) {
                     </span>
                   )}
 
-                  <span className="cart">
+                  <span
+                    className="cart"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation"
+                  >
                     <i className="ri-shopping-cart-fill"></i>
                   </span>
                 </NavLink>
@@ -111,11 +150,19 @@ function NavBar(props) {
                   to="/login"
                   onClick={login && (() => dispatch(logout()))}
                 >
-                  <i
-                    className={
-                      login ? "ri-logout-box-line" : "ri-login-box-line"
-                    }
-                  ></i>
+                  <span
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation"
+                  >
+                    <i
+                      className={
+                        login ? "ri-logout-box-line" : "ri-login-box-line"
+                      }
+                    ></i>
+                  </span>
                 </NavLink>
               </li>
               {/* //// */}

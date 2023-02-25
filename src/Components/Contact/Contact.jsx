@@ -48,17 +48,19 @@ function Contact(props) {
   return (
     <>
       {loading && (
-        <Bars
-          height="550"
-          width="80"
-          color="var(--main-color)"
-          ariaLabel="bars-loading"
-          wrapperStyle={{
-            marginLeft: "650px",
-          }}
-          wrapperClass=""
-          visible={true}
-        />
+        <span className="contactLoading">
+          <Bars
+            height="550"
+            width="80"
+            color="var(--main-color)"
+            ariaLabel="bars-loading"
+            // wrapperStyle={{
+            //   marginLeft: "650px",
+            // }}
+            wrapperClass="loadingSpinner"
+            visible={true}
+          />
+        </span>
       )}
       {!loading && (
         <div className="contact">

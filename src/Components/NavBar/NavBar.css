@@ -67,7 +67,6 @@ nav ul li .active {
   background-color: var(--main-color);
   border: 1px solid var(--main-color);
   border-radius: 20px;
-  
 }
 
 /* responsive */
@@ -88,7 +87,7 @@ nav ul li .active {
     position: relative;
     left: 0;
   }
-  nav .circle{
+  nav .circle {
     display: none;
   }
 }
@@ -112,7 +111,11 @@ nav ul li .active {
     position: relative;
     left: 0;
   }
-    nav .circle {
-      display: none;
-    }
+
+  nav .circle {
+    display: none;
+  }
+  nav ul li .active {
+    width: fit-content;
+  }
 }
