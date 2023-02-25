@@ -24,7 +24,7 @@ function ScrollToTop() {
       style={{ right: show ? "2rem" : "-5rem" }}
       onClick={handleScroll}
     >
-      <i class="ri-arrow-up-s-line"></i>
+      <i className="ri-arrow-up-s-line"></i>
     </Link>
   );
 }

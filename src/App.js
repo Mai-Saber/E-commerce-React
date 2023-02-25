@@ -49,9 +49,9 @@ function App() {
       <div className={`App ${theme}`}>
         <button onClick={handleTheme} className="modeButton">
           {theme === "light" ? (
-            <i class="ri-moon-fill" title="change to dark mode"></i>
+            <i className="ri-moon-fill" title="change to dark mode"></i>
           ) : (
-            <i class="ri-sun-line" title="change to light mode"></i>
+            <i className="ri-sun-line" title="change to light mode"></i>
           )}
         </button>
 
@@ -65,11 +65,11 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/About" element={<About />} />
               <Route path="/product/:id" element={<Product />} />
-              <Route element={<ProtectedRoute />}>
+              {/* <Route element={<ProtectedRoute />}> */}
                 <Route path="/wish-products" element={<WishProducts />} />
                 <Route path="/cart" element={<Cart />} />,
                 <Route path="/check_out" element={<Checkout />} />
-              </Route>
+              {/* </Route> */}
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<Error />} />
             </Routes>

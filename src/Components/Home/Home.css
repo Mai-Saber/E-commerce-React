@@ -209,6 +209,12 @@
   .home .shopProducts .boxes .card .buttons .section {
     width: 50% !important;
   }
+    .spinner {
+      margin: 10px auto 20px;
+      width: 60px;
+      text-align: center;
+      color: var(--main-color);
+    }
 }
 /* loading */
 .loading {

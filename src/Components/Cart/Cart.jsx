@@ -12,11 +12,6 @@ function Cart(prop) {
   const cart = globalState.cartReducer.cart;
 
   //////////////////////////////////////////////
-  const p = cart.filter((item) => item.id == 6);
-  console.log(p);
-  let n = 1;
-
-  // /////////////////////////////
   // const handleChange = (e, id) => {
   // const product = cart.find((item) => item.id == id);
   // const i = cart.indexOf(product);
@@ -27,7 +22,6 @@ function Cart(prop) {
   // console.log("p", product);
   // console.log("c", newCart);
   // };
-
   // /////////////////////////////////////////
   // use handle in redux
   const handleChange = (e, product) => {
@@ -38,6 +32,7 @@ function Cart(prop) {
         product: product,
       })
     );
+    console.log(cart);
   };
 
   //////////////////////////////////////////////////
@@ -84,7 +79,6 @@ function Cart(prop) {
                           <input
                             id="form1"
                             min="1"
-                            max="2"
                             // value={count}
                             onChange={(e) => handleChange(e, product)}
                             name="quantity"

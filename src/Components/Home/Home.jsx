@@ -309,6 +309,9 @@ function Home(props) {
                                       onClick={() => {
                                         dispatch(addToCart(product));
                                       }}
+                                      disabled={
+                                        cart.includes(product) ? true : false
+                                      }
                                     >
                                       <AddShoppingCartIcon />
                                     </IconButton>

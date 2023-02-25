@@ -22,6 +22,10 @@
   height: 100%;
   width: 100%;
 }
+.product .firstSection .imgDiv:hover img {
+  transform: scale(1.2);
+  cursor: zoom-in;
+}
 
 .product .firstSection .stars {
   position: relative;
