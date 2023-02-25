@@ -260,7 +260,7 @@ function Home(props) {
                 {/* products */}
                 <Col xs={12} lg={8}>
                   <div className="shopProducts container">
-                    <h1>{categoryName} section</h1>
+                    <h1 className="sectionName">{categoryName} section</h1>
                     <div className="boxes ">
                       {/* product card */}
                       <Row>

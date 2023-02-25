@@ -125,7 +125,7 @@
 
 .totalBox h3 {
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: auto;
   position: relative;
   left: 80px;
@@ -175,5 +175,8 @@
     position: relative;
     left: 1px;
     margin-top: 20px;
+  }
+  .totalBox .proceed a {
+    top: 0;
   }
 }

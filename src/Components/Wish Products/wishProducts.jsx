@@ -8,6 +8,7 @@ import { addToCart } from "../../Store/Cart";
 import { Link } from "react-router-dom";
 
 function WishProducts(prop) {
+  const cart = useSelector((state) => state.cartReducer.cart);
   const wishListProducts = useSelector(
     (state) => state.wishListReducer.wishList
   );
@@ -47,7 +48,7 @@ function WishProducts(prop) {
                       <h3 className="title"> {ele.title}</h3>
                     </Col>
                     <Col xs={6} md={3}>
-                      <h3 className="price">{Number.parseInt(ele.price)}</h3>
+                      <h3 className="price">{Number.parseInt(ele.price)} $</h3>
                     </Col>
                     <Col xs={6} md={4}>
                       <div className="icons">
@@ -57,6 +58,7 @@ function WishProducts(prop) {
                           aria-label="add to shopping cart"
                           title="add to shopping cart"
                           onClick={() => dispatch(addToCart(ele))}
+                          disabled={cart.includes(ele) ? true : false}
                         >
                           <AddShoppingCartIcon />
                         </IconButton>

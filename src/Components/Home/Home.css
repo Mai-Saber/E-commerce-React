@@ -17,7 +17,7 @@
   color: var(--white-color);
   font-weight: bold;
   font-style: italic;
-  font-family: "Nerko One", cursive;
+  font-family: 'Nerko One', cursive;
   font-size: 4rem;
   text-transform: uppercase;
   text-align: center;
@@ -114,7 +114,7 @@
 .home .shopProducts .boxes .card .details {
   background-color: var(--main-color);
   color: var(--white-color) !important;
-  font-family: "Nerko One", cursive;
+  font-family: 'Nerko One', cursive;
   font-size: 1.5rem;
 }
 
@@ -191,6 +191,23 @@
 /* /////////// */
 
 @media (min-width: 100px) and (max-width: 575px) {
+  .home .carousel .heading {
+    top: 20%;
+    line-height: 1;
+  }
+
+  .home .shopContainer .filtration {
+    margin: 20px auto 20px;
+  }
+
+  .home .shopContainer .shopProducts {
+    margin: auto;
+    border-top: 1px solid var(--grey-color);
+  }
+  .home .shopContainer .sectionName{
+    left: 0;
+    margin: 20px auto;
+  }
   .shopProducts .card {
     height: 500px !important;
     width: 80% !important;
@@ -202,20 +219,21 @@
     width: 60% !important;
     /* margin: auto; */
   }
-    .shopContainer .imgDiv img {
-      height: 50% !important;
-    }
+  .shopContainer .imgDiv img {
+    height: 50% !important;
+  }
 
   .home .shopProducts .boxes .card .buttons .section {
     width: 50% !important;
   }
-    .spinner {
-      margin: 10px auto 20px;
-      width: 60px;
-      text-align: center;
-      color: var(--main-color);
-    }
+  .spinner {
+    margin: 10px auto 20px;
+    width: 60px;
+    text-align: center;
+    color: var(--main-color);
+  }
 }
+/* //////////////////////////////// */
 /* loading */
 .loading {
   text-align: center;
@@ -242,7 +260,7 @@
 }
 
 .sk-folding-cube .sk-cube:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -287,7 +305,6 @@
 }
 
 @-webkit-keyframes sk-foldCubeAngle {
-
   0%,
   10% {
     -webkit-transform: perspective(140px) rotateX(-180deg);
@@ -311,7 +328,6 @@
 }
 
 @keyframes sk-foldCubeAngle {
-
   0%,
   10% {
     -webkit-transform: perspective(140px) rotateX(-180deg);
@@ -333,7 +349,7 @@
     opacity: 0;
   }
 }
-
+/* //////////////////////////////////////////////// */
 /* loading products */
 .spinner {
   margin: 50px auto 20px;
@@ -342,7 +358,7 @@
   color: var(--main-color);
 }
 
-.spinner>div {
+.spinner > div {
   width: 18px;
   height: 18px;
   background-color: var(--main-color);
@@ -364,7 +380,6 @@
 }
 
 @-webkit-keyframes sk-bouncedelay {
-
   0%,
   80%,
   100% {
@@ -377,7 +392,6 @@
 }
 
 @keyframes sk-bouncedelay {
-
   0%,
   80%,
   100% {

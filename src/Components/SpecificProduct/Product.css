@@ -52,6 +52,10 @@
   font-size: 20px;
 }
 
+.product .productDescription .description p{
+  height: 80px;
+  overflow: auto;
+}
 .product .firstSection .productDescription .colors span {
   display: inline-block;
   width: 40px;

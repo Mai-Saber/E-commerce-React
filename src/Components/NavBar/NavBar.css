@@ -90,13 +90,16 @@ nav ul li .active {
   nav .circle {
     display: none;
   }
+  nav ul li .active {
+    width: fit-content !important;
+  }
 }
 
 @media (min-width: 400px) and (max-width: 1200px) {
   nav {
     height: unset;
     width: fit-content;
-    left: 30%;
+    left: calc(100% / 3);
   }
 
   nav .navbar-toggler {
@@ -116,6 +119,6 @@ nav ul li .active {
     display: none;
   }
   nav ul li .active {
-    width: fit-content;
+    width: fit-content !important;
   }
 }
