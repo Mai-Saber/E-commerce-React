@@ -21,10 +21,6 @@ function NavBar(props) {
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          {/* logo */}
-          <NavLink className="navbar-brand logo" to="/">
-            <img src="../../../../Logo.jpeg" alt="logo" />
-          </NavLink>
           {/* toggle button */}
           <button
             className="navbar-toggler"
@@ -37,6 +33,11 @@ function NavBar(props) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
+          {/* logo */}
+          <NavLink className="navbar-brand logo" to="/">
+            <img src="../../../../Logo.jpeg" alt="logo" />
+          </NavLink>
           {/* //ul// */}
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">

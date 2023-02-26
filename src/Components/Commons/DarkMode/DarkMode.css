@@ -1,7 +1,12 @@
 .dark {
-  background-color:grey;
+  background-color: rgb(92, 88, 88);
   color: var(--white-color);
 }
+.dark img{
+  border-radius: 10px;
+}
+
+/* ///////////////// */
 
 .dark .home .shopContainer h4,
 .dark .home .shopContainer h1 {
@@ -27,6 +32,12 @@
 
 .dark .home .shopContainer h3 {
   color: rgb(172, 170, 170);
+}
+.dark .home .addToCart {
+  color: rgba(16, 16, 196, 0.549) !important;
+}
+.dark .home .addToCart[disabled] {
+  color:rgba(255, 255, 255, 0.306) !important;
 }
 
 /* product */
@@ -64,7 +75,7 @@
 .dark .shoppingCart .box:hover,
 .dark .totalBox:hover {
   color: var(--white-color);
-  background-color: var(--darkMode-color);
+  background-color: rgb(183, 181, 181) !important;
 }
 
 .dark .totalBox {
@@ -74,7 +85,7 @@
 /* check out */
 .dark .checkout .cartName {
   /* background-color: grey !important; */
-  color:var(--white-color) !important;
+  color: var(--white-color) !important;
 }
 /* ///////////////////////////////////////////////////// */
 /* light mode */

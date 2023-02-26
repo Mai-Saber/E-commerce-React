@@ -63,26 +63,26 @@ nav .cart_circle {
 
 /* active button */
 nav ul li .active {
-  color: white !important;
-  background-color: var(--main-color);
-  border: 1px solid var(--main-color);
-  border-radius: 20px;
+  color: rgba(40, 40, 232, 0.839) !important;
 }
 
 /* responsive */
 @media (min-width: 100px) and (max-width: 400px) {
   nav {
     height: fit-content;
-    width: fit-content;
+    width: 90%;
     position: fixed;
-    left: 0 !important;
-    padding: 0 !important;
+    left: 3% !important;
+    padding-left: 10px !important;
   }
 
-  nav .logo img {
-    margin-right: 0;
+  nav .logo {
+    position: relative;
+    bottom: 1px;
+    right: -30px !important;
   }
 
+  
   nav .icons {
     position: relative;
     left: 0;
@@ -90,23 +90,22 @@ nav ul li .active {
   nav .circle {
     display: none;
   }
-  nav ul li .active {
-    width: fit-content !important;
-  }
 }
 
 @media (min-width: 400px) and (max-width: 1200px) {
   nav {
-    height: unset;
-    width: fit-content;
-    left: calc(100% / 3);
+    height: fit-content;
+    width: 60%;
+    position: fixed;
+    left: 15% !important;
+    padding-left: 10px !important;
+  }
+  nav .logo {
+    position: relative;
+    right: -30px !important;
   }
 
   nav .navbar-toggler {
-    color: var(--main-color) !important;
-  }
-
-  nav ul li a {
     color: var(--main-color) !important;
   }
 
@@ -118,7 +117,11 @@ nav ul li .active {
   nav .circle {
     display: none;
   }
-  nav ul li .active {
-    width: fit-content !important;
-  }
+}
+
+@media (min-width:100px) and (max-width:990px) {
+  nav ul li:not(:last-of-type),
+    nav ul:not(:last-of-type) {
+      border-bottom: 1px solid var(--grey-color);
+    }
 }

@@ -87,12 +87,21 @@ function Contact(props) {
                     name="email"
                     onChange={handleChange}
                   />
+                  {contact.email.trim() !== "" &&
+                    !contact.email.split().includes("@", ".") && (
+                      <p className="alert alert-danger">
+                        {" "}
+                        Please Include an "@" in the E-mail Address
+                      </p>
+                    )}
+                  {/* phone */}
+
                   <TextField
                     className="inputField"
                     id="standard-basic"
                     label="Enter Your phone"
                     variant="standard"
-                    type="tel"
+                    type="number"
                     minLength={0}
                     maxLength={11}
                     title="Must be 11 digit"
@@ -100,7 +109,16 @@ function Contact(props) {
                     name="phone"
                     onChange={handleChange}
                   />
+                  {contact.phone.trim() !== "" &&
+                    contact.phone.length !== 11 && (
+                      <p className="alert alert-danger">
+                        Phone Number Must Include 11 Digits, The Number You
+                        Entered Contains {contact.phone.length}{" "}
+                        {contact.phone.length === 1 ? "digit" : "digits"}
+                      </p>
+                    )}
 
+                  {/* subject */}
                   <TextField
                     className="inputField"
                     id="standard-basic"
@@ -112,6 +130,7 @@ function Contact(props) {
                     name="subject"
                     onChange={handleChange}
                   />
+                  {/* message */}
                   <TextField
                     className="inputField"
                     id="filled-multiline-static"
@@ -148,7 +167,12 @@ function Contact(props) {
                     type="submit"
                     title="Send Data"
                     onClick={handleSubmit}
-                    disabled={!contact.email || !contact.message ? true : false}
+                    disabled={
+                      !contact.email.split().includes("@") ||
+                      !contact.message
+                        ? true
+                        : false
+                    }
                   >
                     Submit
                   </button>

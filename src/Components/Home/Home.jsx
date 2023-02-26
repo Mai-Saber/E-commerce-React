@@ -140,7 +140,7 @@ function Home(props) {
                   <div className="heading">
                     <span>
                       <Typewriter
-                        words={[" Welcome in my store"]}
+                        words={[" Welcome to my store"]}
                         loop={1}
                         cursor
                         cursorStyle="_"
@@ -227,124 +227,129 @@ function Home(props) {
             </div>
           )}
           {categories.length > 0 && categoryProducts.length > 0 && (
-            <div className="shopContainer container">
-              <Row>
-                {/* filtration */}
-                <Col xs={12} lg={4}>
-                  <div className="filtration">
-                    <h4>Select Category </h4>
-                    <ul>
-                      <li>
-                        <button
-                          className="btn"
-                          title={"watch All Products"}
-                          onClick={() => handleFilterCategories("All Products")}
-                        >
-                          All Products
-                        </button>
-                      </li>
-                      {categories?.map((ele) => (
-                        <li key={ele}>
+            <div className="container">
+              <div className="shopContainer ">
+                <Row>
+                  {/* filtration */}
+                  <Col xs={12} lg={4}>
+                    <div className="filtration">
+                      <h4>Select Category </h4>
+                      <ul>
+                        <li>
                           <button
                             className="btn"
-                            title={"watch " + ele + " Section"}
-                            onClick={() => handleFilterCategories(ele)}
+                            title={"watch All Products"}
+                            onClick={() =>
+                              handleFilterCategories("All Products")
+                            }
                           >
-                            {ele}
+                            All Products
                           </button>
                         </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Col>
-                {/* products */}
-                <Col xs={12} lg={8}>
-                  <div className="shopProducts container">
-                    <h1 className="sectionName">{categoryName} section</h1>
-                    <div className="boxes ">
-                      {/* product card */}
-                      <Row>
-                        {categoryProducts?.map((product) => (
-                          <Col xs={12} sm={6} xl={4} key={product.id}>
-                            <div
-                              className="card"
-                              data-aos="flip-up"
-                              data-aos-duration="1500"
+                        {categories?.map((ele) => (
+                          <li key={ele}>
+                            <button
+                              className="btn"
+                              title={"watch " + ele + " Section"}
+                              onClick={() => handleFilterCategories(ele)}
                             >
-                              <div className="imgDiv">
-                                <img src={product.image} alt="product img" />
-                              </div>
-                              <div className="price">
-                                <p>{Number.parseInt(product.price)} $</p>
-                              </div>
-                              <div className="buttons">
-                                <div
-                                  className="section"
-                                  title={product.category}
-                                >
-                                  {product.category}
-                                </div>
-                                <div className="left_buttons">
-                                  <button
-                                    className="btn heart"
-                                    title="add to lovely products"
-                                    onClick={() => handleWishList(product)}
-                                  >
-                                    <i
-                                      className={
-                                        wishList.includes(product)
-                                          ? "ri-heart-fill"
-                                          : "ri-heart-line"
-                                      }
-                                    ></i>
-                                  </button>
-                                  <span
-                                    className="btn cart"
-                                    title="add to cart"
-                                  >
-                                    <IconButton
-                                      color="primary"
-                                      aria-label="add to shopping cart"
-                                      title="add to shopping cart"
-                                      onClick={() => {
-                                        dispatch(addToCart(product));
-                                      }}
-                                      disabled={
-                                        cart.includes(product) ? true : false
-                                      }
-                                    >
-                                      <AddShoppingCartIcon />
-                                    </IconButton>
-                                  </span>
-                                </div>
-                              </div>
-                              <div className="cardContent">
-                                <h3>Description:</h3>
-                                <p>{product.title}</p>
-                              </div>
-                              <div className="rating">
-                                <Rating
-                                  name="read-only"
-                                  value={Math.floor(product?.rating.rate)}
-                                  readOnly
-                                />
-                              </div>
-                              <button
-                                className="btn details"
-                                title="go to this product details"
-                              >
-                                <Link to={`/product/${product?.id}`}>
-                                  More Details
-                                </Link>
-                              </button>
-                            </div>
-                          </Col>
+                              {ele}
+                            </button>
+                          </li>
                         ))}
-                      </Row>
+                      </ul>
                     </div>
-                  </div>
-                </Col>
-              </Row>
+                  </Col>
+                  {/* products */}
+                  <Col xs={12} lg={8}>
+                    <div className="shopProducts container">
+                      <h1 className="sectionName">{categoryName} section</h1>
+                      <div className="boxes">
+                        {/* product card */}
+                        <Row>
+                          {categoryProducts?.map((product) => (
+                            <Col xs={12} sm={6} xl={4} key={product.id}>
+                              <div
+                                className="card"
+                                data-aos="flip-up"
+                                data-aos-duration="1500"
+                              >
+                                <div className="imgDiv">
+                                  <img src={product.image} alt="product img" />
+                                </div>
+                                <div className="price">
+                                  <p>{Number.parseInt(product.price)} $</p>
+                                </div>
+                                <div className="buttons">
+                                  <div
+                                    className="section"
+                                    title={product.category}
+                                  >
+                                    {product.category}
+                                  </div>
+                                  <div className="left_buttons">
+                                    <button
+                                      className="btn heart"
+                                      title="add to lovely products"
+                                      onClick={() => handleWishList(product)}
+                                    >
+                                      <i
+                                        className={
+                                          wishList.includes(product)
+                                            ? "ri-heart-fill"
+                                            : "ri-heart-line"
+                                        }
+                                      ></i>
+                                    </button>
+                                    <span
+                                      className="btn cart"
+                                      title="add to cart"
+                                    >
+                                      <IconButton
+                                        className="addToCart"
+                                        color="primary"
+                                        aria-label="add to shopping cart"
+                                        title="add to shopping cart"
+                                        onClick={() => {
+                                          dispatch(addToCart(product));
+                                        }}
+                                        disabled={
+                                          cart.includes(product) ? true : false
+                                        }
+                                      >
+                                        <AddShoppingCartIcon />
+                                      </IconButton>
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="cardContent">
+                                  <h3>Description:</h3>
+                                  <p>{product.title}</p>
+                                </div>
+                                <div className="rating">
+                                  <Rating
+                                    name="read-only"
+                                    value={Math.floor(product?.rating.rate)}
+                                    readOnly
+                                  />
+                                </div>
+                                <button
+                                  className="btn details"
+                                  title="go to this product details"
+                                >
+                                  <Link to={`/product/${product?.id}`}>
+                                    More Details
+                                  </Link>
+                                </button>
+                              </div>
+                            </Col>
+                          ))}
+                        </Row>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
             </div>
           )}
           {/* scroll to top */}

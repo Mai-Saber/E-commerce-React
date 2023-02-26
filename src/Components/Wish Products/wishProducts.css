@@ -1,6 +1,7 @@
 .wishList {
   padding-top: 80px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .wishList h1 {
@@ -93,13 +94,19 @@
   }
 
   .wishList .products .product .title {
-    height: 50px;
+    height: 55px;
     overflow: hidden;
+    position: relative;
+    top: 20px;
   }
 
   .wishList .products .product .price,
   .wishList .products .product .icons {
     position: relative;
     top: 20px;
+  }
+  .wishList .products .product:hover .icons{
+    position: relative;
+    top: 0px !important;
   }
 }

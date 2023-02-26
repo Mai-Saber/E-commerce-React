@@ -69,12 +69,12 @@ function Cart(prop) {
                       <Col xs={6} md={3}>
                         <h3 className="title"> {product.title}</h3>
                       </Col>
-                      <Col xs={5} md={2}>
+                      <Col xs={6} md={2}>
                         <h3 className="price">
                           {Number.parseInt(product.price)} $
                         </h3>
                       </Col>
-                      <Col xs={5} md={4}>
+                      <Col xs={4} md={4}>
                         <div className="quantity">
                           <input
                             id="form1"

@@ -1,9 +1,11 @@
+.contact {
+  overflow: hidden;
+}
 .contact .content {
-  margin-top: 30px;
+  margin-top: 40px;
   padding-top: 30px;
   margin-bottom: 50px;
-  border-top: 1px solid var(--grey-color);
-}
+ }
 .contact .content h1 {
   border-bottom: 1px solid var(--grey-color);
   padding-bottom: 3px;
@@ -48,6 +50,12 @@
   .contact .content img {
     display: none;
   }
+.contact .content form .inputField input,
+.contact .content form .MuiInputBase-input {
+  width: 300px !important;
+  padding: 10px 0px;
+  
+}
   .loadingSpinner {
     width: fit-content;
     margin: auto;

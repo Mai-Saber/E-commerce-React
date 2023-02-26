@@ -1,3 +1,4 @@
+
 .shoppingCart {
   padding-top: 80px;
   margin-bottom: 50px;
@@ -125,7 +126,7 @@
 
 .totalBox h3 {
   font-weight: bold;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: auto;
   position: relative;
   left: 80px;
@@ -145,6 +146,8 @@
     height: 55px;
     overflow: hidden;
     margin-bottom: 30%;
+    position: relative;
+    top: 20px;
   }
   .shoppingCart .products .box .price,
   .shoppingCart .products .box .quantity input {
@@ -160,6 +163,7 @@
 }
 /* total responsive */
 @media (min-width: 100px) and (max-width: 1200px) {
+  
   .totalBox {
     height: fit-content;
     font-size: unset;
