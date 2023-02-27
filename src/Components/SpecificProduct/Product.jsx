@@ -147,7 +147,7 @@ function Product(props) {
                     className="btn"
                     onClick={() => dispatch(addToCart(product))}
                     disabled={
-                      cart.filter((item) => item.id === product.id)
+                      cart.filter((item) => item.id === product.id).length===1
                         ? true
                         : false
                     }
