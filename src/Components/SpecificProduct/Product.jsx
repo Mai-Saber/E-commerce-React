@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Loading from '../Commons/Loading/Loading';
 import { Helmet } from "react-helmet";
 import Footer from "../Commons/Footer/Footer";
+import Skeleton from "@mui/material/Skeleton";
 
 function Product(props) {
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,6 @@ function Product(props) {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   const Current_ID = Number(window.location.pathname.slice(9));
-  
 
   const dispatch = useDispatch();
 
@@ -63,18 +63,26 @@ function Product(props) {
               {/* img */}
               <Col xs={12} sm={5}>
                 <div className="imgDiv">
-                  <img
-                    src={product?.image}
-                    alt="product img"
-                    data-aos="fade-right"
-                    data-aos-offset="150"
-                    data-aos-delay="200"
-                    data-aos-duration="5000"
-                    // data-aos-easing="ease-in-out"
-                    // data-aos-mirror="true"
-                    data-aos-once="false"
-                    data-aos-anchor-placement="top-center"
-                  />
+                  {product ? (
+                    <img
+                      src={product?.image}
+                      alt="product img"
+                      data-aos="fade-right"
+                      data-aos-offset="150"
+                      data-aos-delay="200"
+                      data-aos-duration="5000"
+                      // data-aos-easing="ease-in-out"
+                      // data-aos-mirror="true"
+                      data-aos-once="false"
+                      data-aos-anchor-placement="top-center"
+                    />
+                  ) : (
+                    <Skeleton
+                      sx={{ height: "100%" }}
+                      animation="wave"
+                      variant="rectangular"
+                    />
+                  )}
                 </div>
               </Col>
               {/* description */}
@@ -82,31 +90,50 @@ function Product(props) {
                 <div className="productDescription">
                   <div className="category">
                     <span className="fieldName">Category:</span>
-                    <span> {product?.category}</span>
+                    <span>
+                      {" "}
+                      {product ? product?.category : <Skeleton width={200} />}
+                    </span>
                   </div>
 
                   <div className="productName">
-                    <h1>{product?.title}</h1>
+                    <h1>{product ? product?.title : <Skeleton />}</h1>
                   </div>
 
                   <div className="rating">
                     <span className="fieldName">Product Ratings: </span>
                     <span className="stars">
-                      <Rating
-                        name="read-only"
-                        value={Math.floor(product?.rating?.rate)}
-                        readOnly
-                      />
+                      {product ? (
+                        <Rating
+                          name="read-only"
+                          value={Math.floor(product?.rating?.rate)}
+                          readOnly
+                        />
+                      ) : (
+                        <Skeleton width={100} />
+                      )}
                     </span>
                   </div>
 
                   <div className="price">
-                    <h3>{product?.price}$</h3>
+                    <h3>
+                      {product ? (
+                        product?.price + " $"
+                      ) : (
+                        <Skeleton width={100} />
+                      )}
+                    </h3>
                   </div>
 
                   <div className="description">
                     <span className="fieldName">Brief Description:</span>
-                    <p>{product?.description}</p>
+                    <p>
+                      {product ? (
+                        product?.description
+                      ) : (
+                        <Skeleton width={500} height={80} />
+                      )}
+                    </p>
                   </div>
 
                   <div className="colors">
@@ -337,19 +364,43 @@ function Product(props) {
                           data-aos-easing="linear"
                           data-aos-duration="1500"
                         >
-                          <img src={product?.image} alt="product img" />
+                          {product ? (
+                            <img src={product?.image} alt="product img" />
+                          ) : (
+                            <Skeleton
+                              variant="circular"
+                              width={80}
+                              height={80}
+                              style={{ margin: "10px auto" }}
+                              animation="wave"
+                            />
+                          )}
                           <h3
                             className="productName"
                             title="show this product details"
                           >
-                            {product?.title}
+                            {product ? (
+                              product?.title
+                            ) : (
+                              <Skeleton
+                                width={150}
+                                style={{ margin: "auto" }}
+                              />
+                            )}
                           </h3>
                           <span>
-                            <Rating
-                              name="read-only"
-                              value={Math.floor(product?.rating.rate)}
-                              readOnly
-                            />
+                            {product? (
+                              <Rating
+                                name="read-only"
+                                value={Math.floor(product?.rating.rate)}
+                                readOnly
+                              />
+                            ) : (
+                              <Skeleton
+                                width={150}
+                                style={{ margin: "auto" }}
+                              />
+                            )}
                           </span>
                         </div>
                       </a>
