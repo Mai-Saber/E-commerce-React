@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import ScrollToTop from "../Commons/ScrollUp/ScrollUp";
 import Loading from "../Commons/Loading/Loading";
 import { Helmet } from "react-helmet";
+import Footer from "../Commons/Footer/Footer";
 
 
 function Home(props) {
@@ -334,6 +335,8 @@ function Home(props) {
           )}
           {/* scroll to top */}
           <ScrollToTop></ScrollToTop>
+          {/* footer */}
+          <Footer> </Footer>
         </div>
       )}
     </>

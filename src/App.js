@@ -24,6 +24,7 @@ import ProtectedRoute from "./Components/Commons/ProtectedRoute/ProtectedRoute";
 import { useSelector, useDispatch } from "react-redux";
 import { darkMode, lightMode } from "./Store/DarkMode";
 import ScrollToTop from "./Components/Commons/ScrollUp/ScrollUp";
+import Footer from "./Components/Commons/Footer/Footer";
 
 // ///////////////////////////////////////
 
@@ -40,8 +41,6 @@ function App() {
   return (
     <>
       <div className={`App ${theme}`}>
-        
-
         <BrowserRouter>
           <ScrollToTop />
           <ToastContainer />

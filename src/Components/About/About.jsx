@@ -3,6 +3,7 @@ import "./About.css";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Footer from "../Commons/Footer/Footer";
 
 
 function About(props) {

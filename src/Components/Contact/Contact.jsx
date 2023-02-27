@@ -5,6 +5,7 @@ import "./Contact.css";
 import { toast } from "react-toastify";
 import Loading from "../Commons/Loading/Loading";
 import { Helmet } from "react-helmet";
+import Footer from "../Commons/Footer/Footer";
 
 function Contact(props) {
   const [loading, setLoading] = useState(true);
@@ -159,6 +160,10 @@ function Contact(props) {
                 </div>
               </Col>
             </Row>
+          </div>
+          {/* footer */}
+          <div style={{ position: "absolute", bottom: "1px", width: "100%" }}>
+            <Footer></Footer>
           </div>
         </div>
       )}

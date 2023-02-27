@@ -9,6 +9,7 @@ import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import Loading from '../Commons/Loading/Loading';
 import { Helmet } from "react-helmet";
+import Footer from "../Commons/Footer/Footer";
 
 function Product(props) {
   const [loading, setLoading] = useState(true);
