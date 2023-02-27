@@ -336,7 +336,9 @@ function Home(props) {
           {/* scroll to top */}
           <ScrollToTop></ScrollToTop>
           {/* footer */}
-          <Footer> </Footer>
+          {categories.length > 0 && categoryProducts.length > 0 && (
+            <Footer> </Footer>
+          )}
         </div>
       )}
     </>
