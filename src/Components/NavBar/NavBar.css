@@ -116,7 +116,7 @@ nav ul li .active {
 @media (min-width: 400px) and (max-width: 1200px) {
   nav {
     height: fit-content;
-    width: 60%;
+    width: 65%;
     position: fixed;
     left: 15% !important;
     padding-left: 10px !important;
@@ -159,3 +159,4 @@ nav ul li .active {
     display: inline-block;
   }
 }
+

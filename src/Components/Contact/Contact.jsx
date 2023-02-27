@@ -5,15 +5,15 @@ import "./Contact.css";
 import { toast } from "react-toastify";
 import Loading from "../Commons/Loading/Loading";
 
+
 function Contact(props) {
   const [loading, setLoading] = useState(true);
+  const [toastContent, setToastContent] = useState(false);
   const [contact, setContact] = useState({
     email: "",
     phone: "",
-    subject: "",
     message: "",
   });
-  const [toastContent, setToastContent] = useState(false);
 
   useEffect(() => {
     setTimeout(function () {
@@ -61,24 +61,24 @@ function Contact(props) {
               </Col>
               <Col xs={12} md={6}>
                 <h1>CONTACT US</h1>
+                {/* form */}
                 <form onSubmit={handleSubmit}>
                   <TextField
                     className="inputField"
                     id="standard-basic"
-                    label="Enter Your Email"
+                    label="Enter Your Name"
                     variant="standard"
                     type="email"
                     autoFocus
-                    title="It must include @ and '.'"
+                    title="Enter your email"
                     value={contact.email}
                     name="email"
                     onChange={handleChange}
                   />
                   {contact.email.trim() !== "" &&
-                    !contact.email.split().includes("@", ".") && (
+                    !contact.email.includes("@") && (
                       <p className="alert alert-danger">
-                        {" "}
-                        Please Include an "@" in the E-mail Address
+                        Please Include "@" in the Email Address
                       </p>
                     )}
                   {/* phone */}
@@ -105,18 +105,6 @@ function Contact(props) {
                       </p>
                     )}
 
-                  {/* subject */}
-                  <TextField
-                    className="inputField"
-                    id="standard-basic"
-                    label="Subject"
-                    variant="standard"
-                    type="text"
-                    title="Write your subject here"
-                    value={contact.subject}
-                    name="subject"
-                    onChange={handleChange}
-                  />
                   {/* message */}
                   <TextField
                     className="inputField"
@@ -155,7 +143,9 @@ function Contact(props) {
                     title="Send Data"
                     onClick={handleSubmit}
                     disabled={
-                      !contact.email.split().includes("@") || !contact.message
+                      !contact.email.includes("@") ||
+                      contact.phone.length !== 11 ||
+                      !contact.message.trim()
                         ? true
                         : false
                     }

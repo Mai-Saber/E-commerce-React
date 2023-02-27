@@ -5,6 +5,7 @@ import { logout } from "../../Store/Auth";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { darkMode, lightMode } from "../../Store/DarkMode";
+import { Col, Row } from "react-bootstrap";
 
 function NavBar(props) {
   // redux usage
@@ -91,7 +92,9 @@ function NavBar(props) {
                 </NavLink>
               </li>
             </ul>
+
             {/* //// */}
+
             <ul className="navbar-nav my-2 my-lg-0 icons">
               <li className="nav-item" title="go to products you wish to buy">
                 <NavLink
@@ -186,7 +189,10 @@ function NavBar(props) {
                   {theme === "light" ? (
                     <i className="ri-sun-line" title="change to dark mode"></i>
                   ) : (
-                    <i className="ri-moon-fill" title="change to light mode"></i>
+                    <i
+                      className="ri-moon-fill"
+                      title="change to light mode"
+                    ></i>
                   )}
                 </span>
               </li>

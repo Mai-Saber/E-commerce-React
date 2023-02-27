@@ -48,6 +48,7 @@ function Product(props) {
     <>
       {/* loading spinner */}
       {loading && <Loading></Loading>}
+
       {!loading && (
         <div className="product container ">
           {/* first section */}
@@ -87,7 +88,7 @@ function Product(props) {
                     <span className="stars">
                       <Rating
                         name="read-only"
-                        value={Math.floor(product?.rating.rate)}
+                        value={Math.floor(product?.rating?.rate)}
                         readOnly
                       />
                     </span>
@@ -310,37 +311,47 @@ function Product(props) {
           {/* third section */}
           <div className="thirdSection">
             <h1>Related Products</h1>
-            <div className="relatedProducts">
-              <Row>
-                {relatedProducts?.map((product) => (
-                  <Col xs={12} md={4} key={product?.id}>
-                    <a href={"/product/" + product?.id}>
-                      <div
-                        className="productCard"
-                        data-aos="flip-left"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500"
-                      >
-                        <img src={product?.image} alt="product img" />
-                        <h3
-                          className="productName"
-                          title="show this product details"
+            {relatedProducts.length === 0 && (
+              <div className="spinner">
+                <p>Please Wait</p>
+                <div className="bounce1"></div>
+                <div className="bounce2"></div>
+                <div className="bounce3"></div>
+              </div>
+            )}
+            {relatedProducts.length > 0 && (
+              <div className="relatedProducts">
+                <Row>
+                  {relatedProducts?.map((product) => (
+                    <Col xs={12} md={4} key={product?.id}>
+                      <a href={"/product/" + product?.id}>
+                        <div
+                          className="productCard"
+                          data-aos="flip-left"
+                          data-aos-easing="linear"
+                          data-aos-duration="1500"
                         >
-                          {product?.title}
-                        </h3>
-                        <span>
-                          <Rating
-                            name="read-only"
-                            value={Math.floor(product?.rating.rate)}
-                            readOnly
-                          />
-                        </span>
-                      </div>
-                    </a>
-                  </Col>
-                ))}
-              </Row>
-            </div>
+                          <img src={product?.image} alt="product img" />
+                          <h3
+                            className="productName"
+                            title="show this product details"
+                          >
+                            {product?.title}
+                          </h3>
+                          <span>
+                            <Rating
+                              name="read-only"
+                              value={Math.floor(product?.rating.rate)}
+                              readOnly
+                            />
+                          </span>
+                        </div>
+                      </a>
+                    </Col>
+                  ))}
+                </Row>
+              </div>
+            )}
           </div>
         </div>
       )}
