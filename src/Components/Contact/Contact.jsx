@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import TextField from "@mui/material/TextField";
-import { Bars } from "react-loader-spinner";
 import "./Contact.css";
 import { toast } from "react-toastify";
+import Loading from "../Commons/Loading/Loading";
 
 function Contact(props) {
   const [loading, setLoading] = useState(true);
@@ -47,21 +47,8 @@ function Contact(props) {
 
   return (
     <>
-      {loading && (
-        <span className="contactLoading">
-          <Bars
-            height="550"
-            width="80"
-            color="var(--main-color)"
-            ariaLabel="bars-loading"
-            // wrapperStyle={{
-            //   marginLeft: "650px",
-            // }}
-            wrapperClass="loadingSpinner"
-            visible={true}
-          />
-        </span>
-      )}
+      {loading && <Loading></Loading>}
+
       {!loading && (
         <div className="contact">
           <div className="content container">
@@ -168,8 +155,7 @@ function Contact(props) {
                     title="Send Data"
                     onClick={handleSubmit}
                     disabled={
-                      !contact.email.split().includes("@") ||
-                      !contact.message
+                      !contact.email.split().includes("@") || !contact.message
                         ? true
                         : false
                     }

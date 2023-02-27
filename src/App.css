@@ -2,22 +2,10 @@
   --main-color: rgba(226, 29, 62, 0.687);
   --white-color: white;
   --grey-color: rgba(232, 229, 229, 0.806);
+  --darkRed-color: rgba(138, 37, 37, 0.593);
   box-sizing: border-box;
 }
-.modeButton {
-  display: inline;
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  background-color: var(--white-color);
-  color: var(--main-color);
-  z-index: 999;
-  padding: 0px 3px;
-  border-radius: 7px;
-  border: 1px solid var(--main-color);
-  font-size: 25px;
-  box-shadow: 1px 1px 1px 2px var(--grey-color);
-}
+
 a {
   color: var(--white-color) !important;
   text-decoration: none !important;

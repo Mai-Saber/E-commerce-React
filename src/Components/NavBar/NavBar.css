@@ -1,6 +1,6 @@
 nav {
   box-shadow: 4px 4px 4px 4px rgba(128, 128, 128, 0.72);
-  width: 50%;
+  width: 55%;
   height: 60px;
   border-radius: 50px;
   padding: 0px 10px !important;
@@ -26,14 +26,36 @@ nav ul li a {
 
 .icons {
   position: relative;
-  left: 15%;
+  left: 10%;
+}
+/* dark mode  */
+.modeButton {
+  color: var(--main-color);
+  position: relative;
+  top: 6px;
+  cursor: pointer;
+}
+.modeButton i {
+  position: relative;
+  top: 2px;
+  left: 10px;
+}
+.modeButton:before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  background-color: var(--grey-color);
+  width: 1px;
+  height: 40px;
+  left: -5px;
 }
 
+/* ////////////////////// */
 /* circles */
 .cart i,
 .wish i {
-  position: "relative";
-  z-index: "999" !important;
+  position: 'relative';
+  z-index: '999' !important;
 }
 
 nav .circle {
@@ -82,7 +104,6 @@ nav ul li .active {
     right: -30px !important;
   }
 
-  
   nav .icons {
     position: relative;
     left: 0;
@@ -119,9 +140,22 @@ nav ul li .active {
   }
 }
 
-@media (min-width:100px) and (max-width:990px) {
+@media (min-width: 100px) and (max-width: 990px) {
   nav ul li:not(:last-of-type),
-    nav ul:not(:last-of-type) {
-      border-bottom: 1px solid var(--grey-color);
-    }
+  nav ul:not(:last-of-type) {
+    border-bottom: 1px solid var(--grey-color);
+  }
+  .modeButton i {
+    position: relative;
+    left: 3px;
+    top: 3px !important;
+  }
+  .modeButton:before {
+    background-color: transparent;
+    width: 0;
+  }
+  nav ul li span {
+    width: 100% !important;
+    display: inline-block;
+  }
 }

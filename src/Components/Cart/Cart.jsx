@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,18 +10,6 @@ function Cart(prop) {
   const dispatch = useDispatch();
   const cart = globalState.cartReducer.cart;
 
-  //////////////////////////////////////////////
-  // const handleChange = (e, id) => {
-  // const product = cart.find((item) => item.id == id);
-  // const i = cart.indexOf(product);
-  // let newCart = cart.slice(i + 1);
-  // const obj = { ...product, quantity: e.target.value };
-  // // newCart.push(obj);
-  // newCart = [...newCart, obj ];
-  // console.log("p", product);
-  // console.log("c", newCart);
-  // };
-  // /////////////////////////////////////////
   // use handle in redux
   const handleChange = (e, product) => {
     dispatch(
@@ -32,7 +19,6 @@ function Cart(prop) {
         product: product,
       })
     );
-    console.log(cart);
   };
 
   //////////////////////////////////////////////////

@@ -2,19 +2,15 @@ import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import "./Checkout.css";
 import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { pink } from "@mui/material/colors";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import cartReducer from "../../Store/Cart";
 
 function Checkout(props) {
   const globalState = useSelector((state) => state);
@@ -280,13 +276,13 @@ function Checkout(props) {
                       className="list-group-item d-flex justify-content-between lh-condensed"
                     >
                       <div>
-                        <h6 className="my-0">{ele.name}</h6>
+                        <h6 className="my-0">{ele.title}</h6>
                         <small className="text-muted">{ele.category}</small>
                       </div>
                       <span className="text-muted">
-                        {Number.parseInt(ele.price)} $
+                        {Number.parseInt(ele.price)} $ x
                         <span style={{ color: "var(--main-color)" }}>
-                          {ele.quantity}
+                          {ele.quantity ? ele.quantity : 1}
                         </span>
                       </span>
                     </li>

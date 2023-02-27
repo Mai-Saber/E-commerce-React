@@ -87,6 +87,28 @@
   /* background-color: grey !important; */
   color: var(--white-color) !important;
 }
+/* //////////////////////// */
+/* red buttons */
+/* back ground */
+.dark .home .details,
+.dark .home .price,
+.dark .about button,
+.dark .product .firstSection button,
+.dark .totalBox .proceed {
+  background-color: var(--darkRed-color) !important;
+}
+
+/* color*/
+.dark .home .heart i,
+.dark .product .fieldName,
+.dark .product .secondSection .buttons button,
+.dark .product .thirdSection h1,
+.dark .wishList h1,
+.dark .wishList .products .product .delete .close ,
+.dark .shoppingCart .address,
+.dark .shoppingCart .products .box .delete {
+  color: var(--darkRed-color) !important;
+}
 /* ///////////////////////////////////////////////////// */
 /* light mode */
 .light {

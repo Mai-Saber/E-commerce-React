@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { ColorRing } from "react-loader-spinner";
 import { Typewriter } from "react-simple-typewriter";
 import * as service from "../../Services/Api";
 import Rating from "@mui/material/Rating";
-
 import "animate.css";
 import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../Store/Cart";
 import { addToLovelyList, removeFromLovelyList } from "../../Store/WishList";
-import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../Commons/ScrollUp/ScrollUp";
+import Loading from "../Commons/Loading/Loading";
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -37,14 +35,7 @@ function Home(props) {
 
     // products
     async function GetProducts() {
-      // const arr = [];
       const response = await service.AxiosFunction("get", "products");
-      // for (const product of response) {
-      //   arr.push({
-      //     ...product
-      //     // ,quantity: 2
-      //   });
-      // }
       setAllProducts(response);
       setCategoryProducts(response);
     }
@@ -88,16 +79,7 @@ function Home(props) {
   return (
     <>
       {/* loading spinner */}
-      {loading && (
-        <div className="loading">
-          <div className="sk-folding-cube">
-            <div className="sk-cube1 sk-cube"></div>
-            <div className="sk-cube2 sk-cube"></div>
-            <div className="sk-cube4 sk-cube"></div>
-            <div className="sk-cube3 sk-cube"></div>
-          </div>
-        </div>
-      )}
+      {loading && <Loading></Loading>}
 
       {!loading && (
         <div className="home">
@@ -160,19 +142,7 @@ function Home(props) {
                     alt="carousel img"
                   />
                   <div className="heading">
-                    <span>Enjoy This Offer</span>
-                    <h1>
-                      Sale{" "}
-                      <Typewriter
-                        words={["50% on clothes", "40% on laptop"]}
-                        loop={300}
-                        cursor
-                        cursorStyle="_"
-                        typeSpeed={200}
-                        deleteSpeed={200}
-                        delaySpeed={4000}
-                      />
-                    </h1>
+                    <span>Sale 50% on clothes</span>
                   </div>
                 </div>
               </div>

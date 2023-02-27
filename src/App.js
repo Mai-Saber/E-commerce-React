@@ -32,13 +32,7 @@ function App() {
   const dispatch = useDispatch();
   const theme = globalState.DarkModeReducer.theme;
 
-  const handleTheme = () => {
-    if (theme === "light") {
-      dispatch(darkMode());
-    } else {
-      dispatch(lightMode());
-    }
-  };
+ 
   // //////////////
   useEffect(() => {
     document.body.className = theme;
@@ -47,13 +41,7 @@ function App() {
   return (
     <>
       <div className={`App ${theme}`}>
-        <button onClick={handleTheme} className="modeButton">
-          {theme === "light" ? (
-            <i className="ri-moon-fill" title="change to dark mode"></i>
-          ) : (
-            <i className="ri-sun-line" title="change to light mode"></i>
-          )}
-        </button>
+        
 
         <BrowserRouter>
           <ScrollToTop />

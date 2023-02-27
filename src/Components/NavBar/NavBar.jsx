@@ -1,20 +1,25 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import "./NavBar.css";
 import { useSelector, useDispatch } from "react-redux";
-import authReducer from "../../Store/Auth";
-import { login, logout } from "../../Store/Auth";
-import { Link, NavLink } from "react-router-dom";
+import { logout } from "../../Store/Auth";
+import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import wishListReducer from "../../Store/WishList";
-import cartReducer from "../../Store/Cart";
-import { color } from "@mui/system";
+import { darkMode, lightMode } from "../../Store/DarkMode";
 
 function NavBar(props) {
   // redux usage
   const globalState = useSelector((state) => state);
-  const login = globalState.authReducer.isLogged;
   const dispatch = useDispatch();
+  const login = globalState.authReducer.isLogged;
+  const theme = globalState.DarkModeReducer.theme;
+
+  const handleTheme = () => {
+    if (theme === "light") {
+      dispatch(darkMode());
+    } else {
+      dispatch(lightMode());
+    }
+  };
 
   // //////////////////////////////////////////////////////////////////////
   return (
@@ -165,6 +170,25 @@ function NavBar(props) {
                     ></i>
                   </span>
                 </NavLink>
+              </li>
+              {/* ///// */}
+              <li>
+                <span
+                  onClick={handleTheme}
+                  className="modeButton"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarTogglerDemo02"
+                  aria-controls="navbarTogglerDemo02"
+                  aria-expanded="true"
+                  aria-label="Toggle navigation"
+                >
+                  Theme :
+                  {theme === "light" ? (
+                    <i className="ri-moon-fill" title="change to dark mode"></i>
+                  ) : (
+                    <i className="ri-sun-line" title="change to light mode"></i>
+                  )}
+                </span>
               </li>
               {/* //// */}
             </ul>

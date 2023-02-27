@@ -7,6 +7,7 @@ import { addToCart } from "../../Store/Cart";
 import { ColorRing } from "react-loader-spinner";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
+import Loading from '../Commons/Loading/Loading';
 
 function Product(props) {
   const [loading, setLoading] = useState(true);
@@ -46,20 +47,7 @@ function Product(props) {
   return (
     <>
       {/* loading spinner */}
-      {loading && (
-        <div className="loading">
-          <ColorRing
-            visible={true}
-            height="100"
-            width="200"
-            ariaLabel="blocks-loading"
-            wrapperStyle={{}}
-            wrapperClass="blocks-wrapper"
-            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-          />
-        </div>
-      )}
-
+      {loading && <Loading></Loading>}
       {!loading && (
         <div className="product container ">
           {/* first section */}
