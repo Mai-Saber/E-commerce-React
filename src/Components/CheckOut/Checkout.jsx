@@ -11,6 +11,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { useSelector } from "react-redux";
+import { Helmet } from 'react-helmet';
 
 function Checkout(props) {
   const globalState = useSelector((state) => state);
@@ -29,6 +30,10 @@ function Checkout(props) {
 
   return (
     <>
+      <Helmet>
+        <title>Store | Check Out</title>
+      </Helmet>
+      {/* check out */}
       <div className="checkout">
         <div className="container">
           <Row>

@@ -2,10 +2,16 @@ import React from "react";
 import "./About.css";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 
 function About(props) {
   return (
     <>
+      <Helmet>
+        <title>Store | About</title>
+      </Helmet>
+      {/* about */}
       <div className="about">
         <div className="container">
           <h1>ABOUT US</h1>

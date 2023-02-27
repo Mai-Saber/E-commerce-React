@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import "./Contact.css";
 import { toast } from "react-toastify";
 import Loading from "../Commons/Loading/Loading";
-
+import { Helmet } from "react-helmet";
 
 function Contact(props) {
   const [loading, setLoading] = useState(true);
@@ -47,6 +47,10 @@ function Contact(props) {
 
   return (
     <>
+      <Helmet>
+        <title>Store | Contact</title>
+      </Helmet>
+      {/* contact */}
       {loading && <Loading></Loading>}
 
       {!loading && (

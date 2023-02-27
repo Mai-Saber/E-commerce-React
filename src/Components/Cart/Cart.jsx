@@ -3,6 +3,7 @@ import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCart, handleQuantity } from "../../Store/Cart";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Cart(prop) {
   // redux usage
@@ -25,6 +26,10 @@ function Cart(prop) {
 
   return (
     <>
+      <Helmet>
+        <title>Store | Cart</title>
+      </Helmet>
+      {/* Cart */}
       {!cart.length && (
         <div className="empty">
           <img

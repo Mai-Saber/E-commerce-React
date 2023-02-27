@@ -6,6 +6,7 @@ import { useSelector ,useDispatch } from "react-redux";
 import wishListReducer, { removeFromLovelyList } from "../../Store/WishList";
 import { addToCart } from "../../Store/Cart";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function WishProducts(prop) {
   const cart = useSelector((state) => state.cartReducer.cart);
@@ -16,6 +17,10 @@ function WishProducts(prop) {
 
   return (
     <>
+      <Helmet>
+        <title>Store | Wish List</title>
+      </Helmet>
+      {/* wish list  */}
       <div className="wishList">
         {!wishListProducts.length && (
           <div className="empty">

@@ -32,7 +32,6 @@ function App() {
   const dispatch = useDispatch();
   const theme = globalState.DarkModeReducer.theme;
 
- 
   // //////////////
   useEffect(() => {
     document.body.className = theme;

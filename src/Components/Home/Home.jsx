@@ -13,6 +13,8 @@ import { addToLovelyList, removeFromLovelyList } from "../../Store/WishList";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../Commons/ScrollUp/ScrollUp";
 import Loading from "../Commons/Loading/Loading";
+import { Helmet } from "react-helmet";
+
 
 function Home(props) {
   const [loading, setLoading] = useState(true);
@@ -78,6 +80,11 @@ function Home(props) {
   // ///////////////////////////
   return (
     <>
+      {/* change document title */}
+      <Helmet>
+        <title>Store | Home</title>
+      </Helmet>
+      {/* home */}
       {/* loading spinner */}
       {loading && <Loading></Loading>}
 

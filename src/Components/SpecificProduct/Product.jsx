@@ -8,6 +8,7 @@ import { ColorRing } from "react-loader-spinner";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import Loading from '../Commons/Loading/Loading';
+import { Helmet } from "react-helmet";
 
 function Product(props) {
   const [loading, setLoading] = useState(true);
@@ -46,6 +47,10 @@ function Product(props) {
 
   return (
     <>
+      <Helmet>
+        <title>Store | Product</title>
+      </Helmet>
+      {/* product details */}
       {/* loading spinner */}
       {loading && <Loading></Loading>}
 
