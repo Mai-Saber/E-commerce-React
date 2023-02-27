@@ -290,8 +290,8 @@
   }
 
   .spinner {
-    margin: 10px auto 20px;
-    width: 60px;
+    margin: 30px auto 20px;
+    width: 100px;
     text-align: center;
     color: var(--main-color);
   }
