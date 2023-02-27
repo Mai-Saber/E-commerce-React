@@ -202,7 +202,10 @@ function Home(props) {
                 <Row>
                   {/* filtration */}
                   <Col xs={12} lg={4}>
-                    <div className="filtration">
+                    <div
+                      className="filtration"
+                      style={{ position: "sticky", top: "100px" }}
+                    >
                       <h4>Select Category </h4>
                       <ul>
                         <li>

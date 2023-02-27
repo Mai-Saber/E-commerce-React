@@ -184,9 +184,9 @@ function NavBar(props) {
                 >
                   Theme :
                   {theme === "light" ? (
-                    <i className="ri-moon-fill" title="change to dark mode"></i>
+                    <i className="ri-sun-line" title="change to dark mode"></i>
                   ) : (
-                    <i className="ri-sun-line" title="change to light mode"></i>
+                    <i className="ri-moon-fill" title="change to light mode"></i>
                   )}
                 </span>
               </li>

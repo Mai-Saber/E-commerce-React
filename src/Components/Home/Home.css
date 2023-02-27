@@ -1,6 +1,4 @@
-.home {
-  overflow: hidden;
-}
+
 .home .carousel {
   height: 60vh !important;
   margin-bottom: 5px;
@@ -31,11 +29,13 @@
 /* filtration */
 .home .shopContainer {
   margin-bottom: 10px;
+  position: relative;
 }
 
+
 .home .shopContainer .filtration {
-  border: 1px solid black;
   position: sticky !important;
+  border: 1px solid black;
   top: 100px !important;
   z-index: 9999;
   margin-top: 100px;
@@ -45,6 +45,7 @@
   padding: 20px;
   box-shadow: 2px 2px 2px 2px grey;
 }
+
 
 .home .shopContainer .filtration h4 {
   text-align: center;
@@ -298,6 +299,9 @@
 
 /* //////////////////////////////// */
 @media (min-width: 100px) and (max-width: 1000px) {
+  .home {
+    overflow: hidden;
+  }
   .home .carousel {
       height: 40vh !important;
       position: relative;
