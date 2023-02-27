@@ -123,7 +123,7 @@ function Home(props) {
                     <span>
                       <Typewriter
                         words={[" Welcome to my store"]}
-                        loop={1}
+                        loop={5}
                         cursor
                         cursorStyle="_"
                         typeSpeed={200}
