@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Product.css";
 import { Row, Col } from "react-bootstrap";
 import * as service from "../../Services/Api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Store/Cart";
 import { ColorRing } from "react-loader-spinner";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
-import Loading from '../Commons/Loading/Loading';
+import Loading from "../Commons/Loading/Loading";
 import { Helmet } from "react-helmet";
 import Footer from "../Commons/Footer/Footer";
 import Skeleton from "@mui/material/Skeleton";
@@ -19,8 +19,9 @@ function Product(props) {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   const Current_ID = Number(window.location.pathname.slice(9));
-
+  const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
+  const cart = globalState.cartReducer.cart;
 
   useEffect(() => {
     // loading
@@ -145,8 +146,12 @@ function Product(props) {
                   <button
                     className="btn"
                     onClick={() => dispatch(addToCart(product))}
+                    disabled={
+                      cart.filter((item) => item.id === product.id)
+                        ? true
+                        : false
+                    }
                   >
-                    {" "}
                     ADD TO THE CART
                   </button>
                 </div>
@@ -389,7 +394,7 @@ function Product(props) {
                             )}
                           </h3>
                           <span>
-                            {product? (
+                            {product ? (
                               <Rating
                                 name="read-only"
                                 value={Math.floor(product?.rating.rate)}
